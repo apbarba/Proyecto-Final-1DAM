@@ -1,0 +1,40 @@
+body{
+    font-family:Arial, Helvetica, sans-serif;
+}
+#menu a{
+    font-size: 15pt;
+}
+
+#menu button{
+    font-size: 15pt;
+}
+.carousel-inner{
+    max-height: 35rem ;
+}
+.navbar{
+    width: 100%;
+}
+footer{
+    width: 100%;
+}
+
+#dorado{
+    color: #D4AF37;
+}
+
+
+
+@media (max-width:768px){
+    #intro, #informacion{
+        width: 90% !important;
+    }
+    .columna-1{
+        width: 100% !important;
+    }
+    #mitad{
+        width: 90% !important;
+    }
+    #imformacion p{
+        display: none;
+    }
+}
