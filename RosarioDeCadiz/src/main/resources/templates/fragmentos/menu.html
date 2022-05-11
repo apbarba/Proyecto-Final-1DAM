@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="UTF-8">
+<title>Rosario de Cádiz</title>
+<style type="text/css">
+	body{
+    font-family:Arial, Helvetica, sans-serif;
+}
+#menu a{
+    font-size: 15pt;
+}
+
+#menu button{
+    font-size: 15pt;
+}
+.carousel-inner{
+    max-height: 35rem ;
+}
+.navbar{
+    width: 100%;
+}
+footer{
+    width: 100%;
+}
+
+
+
+@media (max-width:768px){
+    #intro, #informacion{
+        width: 90% !important;
+    }
+    .columna-1{
+        width: 100% !important;
+    }
+    #mitad{
+        width: 90% !important;
+    }
+    #imformacion p{
+        display: none;
+    }
+}
+</style>
+</head>
+
+<body>
+	
+     <!------------------------------------------------------------------------------------------------------------------------------->
+    <!--CABECERO-->
+    <header class="container-fluid d-flex justify-content-center" style="background-color: rgb(92, 92, 92);">
+        <p class="text-light mb-0 p-2 fs-5" style=" background-color: rgb(92, 92, 92);">Rosario De Cádiz</p>
+    </header>
+
+    <!------------------------------------------------------------------------------------------------------------------------------->
+    <!--MENÚ ADAPTABLE PARA  MÓVILES, TABLET Y ORDENADORES-->
+    <nav class="navbar navbar-light bg-light p-3 sticky-top" id="menu">
+        <div class="container-fluid">
+            <a class="navbar-brand" href="#">
+                <span class="text-danger fs-5 fx-bold"><img src="" width="35" height="35" alt=""></span>
+            </a>
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
+            data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportContent"
+            aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+
+                    <li class="nav-item">
+                        <a class="nav-link active text-dark" aria-current="page" href="./principal.html"><strong>INICIO</strong></a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./formulario.html">Iniciar Sesion</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./usuarios/usuario1.html">Quienes Somos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./usuarios/usuario2.html">Componentes</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./usuarios/usuario2.html">Repertorio</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a class="nav-link" href="./usuarios/usuario2.html">Productos</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a id="dorado" class="nav-link" href="./usuarios/usuario2.html">Galería</a>
+                    </li>
+
+                    <li class="nav-item">
+                        <a id="dorado" class="nav-link" href="./usuarios/usuario2.html">Semana Santa</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+</body>
