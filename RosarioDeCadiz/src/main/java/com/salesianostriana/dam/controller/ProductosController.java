@@ -3,43 +3,89 @@ package com.salesianostriana.dam.controller;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.ModelAttribute;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 
+import com.salesianostriana.dam.model.EventosModel;
 import com.salesianostriana.dam.model.ProductosModel;
+import com.salesianostriana.dam.servicios.EventosServicios;
+import com.salesianostriana.dam.servicios.ProductosServicios;
 
 @Controller
 public class ProductosController {
 	
-	@GetMapping ("/productos")
-	public String productosBanda(Model model) {
+	@Controller 
+	public class EventosController {
 		
-		model.addAttribute("productos", new ProductosModel("Camiseta Rosario",100, 23.50, true,1 ));
+		private ProductosServicios productos;
 		
-		return "Productos"; //Nombre de la página en la que se verá al igual que venta
-	}
-	
-	@GetMapping ("/productos")
-	public String productosBanda2(Model model) {
 		
-		model.addAttribute("productos", new ProductosModel("Polo Rosario", 100, 50.99, true,2));
+		public EventosController(ProductosServicios productos) {
+			super();
+			this.productos = productos;
+		}
+
+
+		@GetMapping({"/", "/eventos"}) //Ruta de donde se encuentra
+		public String eventosBanda(Model model) {
+			
+			model.addAttribute("productosLista", productos.findAll());
+			
+			return "Productos"; //El nombre de la página html en la que irá los eventos de la banda
+		}
 		
-		return "Productos";
-	}
-	
-	@GetMapping ("/productos")
-	public String productosBanda3(Model model) {
+		@GetMapping("/productoNuevo")
+		public String mostrarFormulario(Model model) {
+			
+			model.addAttribute("alumno", new ProductosModel());
+			
+			return "Producto Nuevo";
+		}
 		
-		model.addAttribute("productos", new ProductosModel("Pulsera Rosario", 100, 1.00, false,3));
+		@PostMapping("/ProductoNuevo/proceso")
+		public String procesarFormulario(@ModelAttribute("eventos") ProductosModel e) {
+			
+			productos.add(e);
+			
+			return "redirect:/";
+		}
 		
-		return "Productos";
+		@GetMapping("/editar/{id}")
+		public String mostrarFormularioEdicion(@PathVariable("id") long id_producto, Model model) { //Especificamos el nombre de la ruta
+			
+			ProductosModel edit = productos.findById(id_producto);
+			
+			if (edit != null) {
+				
+				model.addAttribute("alumno", edit);
+				
+				return "Productos";
+				
+			} else {
+				
+				return "redirect:/";
+			}
+			
+			
+		}
 		
-	}
-	
-	@GetMapping ("/productos")
-	public String productosBanda4( Model model) {
+		@PostMapping("/editar/submit")
+		public String procesarFormularioEdicion(@ModelAttribute("eventos") ProductosModel e) { //El nombre que le damos al model
+			
+			productos.edit(e);
+			
+			return "redirect:/";
+		}
 		
-	model.addAttribute("productos", new ProductosModel("Manopla Escudo", 100, 5.00, false, 4));
+		@GetMapping("/borrar/{id}")
 		
-	return "Productos";
+		public String borrar(@PathVariable("id") long id_producto) { //Especificamos el nombre de la ruta
+			
+			productos.delete(id_producto);
+			
+			return "redirect:/";
+		}
 	}
 }
 
