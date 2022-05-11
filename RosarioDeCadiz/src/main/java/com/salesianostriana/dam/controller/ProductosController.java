@@ -16,6 +16,31 @@ public class ProductosController {
 		
 		return "Productos"; //Nombre de la página en la que se verá al igual que venta
 	}
+	
+	@GetMapping ("/productos")
+	public String productosBanda2(Model model) {
+		
+		model.addAttribute("productos", new ProductosModel("Polo Rosario", 100, 50.99, true,2));
+		
+		return "Productos";
+	}
+	
+	@GetMapping ("/productos")
+	public String productosBanda3(Model model) {
+		
+		model.addAttribute("productos", new ProductosModel("Pulsera Rosario", 100, 1.00, false,3));
+		
+		return "Productos";
+		
+	}
+	
+	@GetMapping ("/productos")
+	public String productosBanda4( Model model) {
+		
+	model.addAttribute("productos", new ProductosModel("Manopla Escudo", 100, 5.00, false, 4));
+		
+	return "Productos";
+	}
 }
 
 
