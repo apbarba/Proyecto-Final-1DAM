@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -15,21 +16,12 @@ import com.salesianostriana.dam.servicios.ProductosServicios;
 @Controller
 public class ProductosController {
 	
-	@Controller 
-	public class EventosController {
-		
+		@Autowired
 		private ProductosServicios productos;
-		
-		
-		public EventosController(ProductosServicios productos) {
+
+		public ProductosController(ProductosServicios productos) {
 			super();
 			this.productos = productos;
-		}
-		
-		@GetMapping("/productos")
-		public String mostrar() {
-			
-			return "productos";
 		}
 
 		@GetMapping({"/", "/productos"}) //Ruta de donde se encuentra
@@ -37,19 +29,19 @@ public class ProductosController {
 			
 			model.addAttribute("productosLista", productos.findAll());
 			
-			return "productos"; //El nombre de la página html en la que irá los eventos de la banda
+			return "Productos"; //El nombre de la página html en la que irá los eventos de la banda
 		}
 		
 		@GetMapping("/productoNuevo")
 		public String mostrarFormulario(Model model) {
 			
-			model.addAttribute("alumno", new ProductosModel());
+			model.addAttribute("productos", new ProductosModel());
 			
-			return "productoNuevo";
+			return "ProductoNuevo";
 		}
 		
-		@PostMapping("/productoNuevo/proceso")
-		public String procesarFormulario(@ModelAttribute("eventos") ProductosModel e) {
+		@PostMapping("/productoNuevo/submit")
+		public String procesarFormulario(@ModelAttribute("productos") ProductosModel e) {
 			
 			productos.add(e);
 			
@@ -63,9 +55,9 @@ public class ProductosController {
 			
 			if (edit != null) {
 				
-				model.addAttribute("alumno", edit);
+				model.addAttribute("productos", edit);
 				
-				return "productos";
+				return "Productos";
 				
 			} else {
 				
@@ -76,7 +68,7 @@ public class ProductosController {
 		}
 		
 		@PostMapping("/editar/submit")
-		public String procesarFormularioEdicion(@ModelAttribute("eventos") ProductosModel e) { //El nombre que le damos al model
+		public String procesarFormularioEdicion(@ModelAttribute("productos") ProductosModel e) { //El nombre que le damos al model
 			
 			productos.edit(e);
 			
@@ -92,7 +84,7 @@ public class ProductosController {
 			return "redirect:/";
 		}
 	}
-}
+
 
 
 //private String nombre_Producto;
