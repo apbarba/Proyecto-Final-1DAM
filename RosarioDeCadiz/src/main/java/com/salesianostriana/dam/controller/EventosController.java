@@ -32,6 +32,12 @@ public class EventosController {
 		return "Eventos"; //El nombre de la página html en la que irá los eventos de la banda
 	}
 	
+	
+	@GetMapping ("/productos")
+	public String irPro () {
+		return "Productos";
+	}
+	
 	@GetMapping("/eventoNuevo")
 	public String mostrarFormulario(Model model) {
 		

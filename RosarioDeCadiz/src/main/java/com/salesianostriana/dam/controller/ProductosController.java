@@ -25,14 +25,19 @@ public class ProductosController {
 			super();
 			this.productos = productos;
 		}
-
+		
+		@GetMapping("/productos")
+		public String mostrar() {
+			
+			return "productos";
+		}
 
 		@GetMapping({"/", "/productos"}) //Ruta de donde se encuentra
 		public String eventosBanda(Model model) {
 			
 			model.addAttribute("productosLista", productos.findAll());
 			
-			return "Productos"; //El nombre de la página html en la que irá los eventos de la banda
+			return "productos"; //El nombre de la página html en la que irá los eventos de la banda
 		}
 		
 		@GetMapping("/productoNuevo")
@@ -40,7 +45,7 @@ public class ProductosController {
 			
 			model.addAttribute("alumno", new ProductosModel());
 			
-			return "Producto Nuevo";
+			return "productoNuevo";
 		}
 		
 		@PostMapping("/productoNuevo/proceso")
@@ -60,7 +65,7 @@ public class ProductosController {
 				
 				model.addAttribute("alumno", edit);
 				
-				return "Productos";
+				return "productos";
 				
 			} else {
 				
