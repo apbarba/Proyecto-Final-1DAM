@@ -16,6 +16,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class PartiturasModel {
 
+	private String audio;
 	private double precio;
 	private int tipo_partituras;
 	private String bandas_interpretan;

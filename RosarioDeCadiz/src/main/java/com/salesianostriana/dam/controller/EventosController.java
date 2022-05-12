@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.controller;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
@@ -13,6 +14,7 @@ import com.salesianostriana.dam.servicios.EventosServicios;
 @Controller 
 public class EventosController {
 	
+	@Autowired
 	private EventosServicios eventos;
 	
 	
@@ -35,7 +37,7 @@ public class EventosController {
 		
 		model.addAttribute("eventos", new EventosModel());
 		
-		return "Evento Nuevo";
+		return "EventoNuevo"; //El nombre de la páguina en la que añadimos un evento nuevo
 	}
 	
 	@PostMapping("/eventoNuevo/proceso")

@@ -16,7 +16,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class ProductosModel {
 
-
+	private String img;
 	private String nombre_Producto;
 	private int cantidad;
 	private double precio;
