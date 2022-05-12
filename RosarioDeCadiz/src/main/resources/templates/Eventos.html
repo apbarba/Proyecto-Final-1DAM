@@ -1,0 +1,58 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" integrity="sha384-
+Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<title>Rosario de Cádiz</title>
+</head>
+<body>
+
+	<nav th:replace="~{fragmentos/menu::menu}"></nav>
+	
+	<table>
+		
+		<thead>
+			
+			<tr>
+			
+				<th>Id</th>
+				<th>Fecha</th>
+				<th>Lugar</th>
+				<th>Asunto</th>
+				<th>Organizador</th>
+			
+			</tr>
+			
+		</thead>
+		<tbody>
+		
+			<tr th:each="eventos: ${eventos}">
+			
+				<td th:text="${eventos.id}">1</td>
+				<td th:text="${eventos.fecha}">Fecha</td>
+				<td th:text="${eventos.lugar}">Lugar</td>
+				<td th:text="${eventos.asunto}">Asunto</td>
+				<td th:text="${eventos.organizador}">Organizador</td>
+				<td>
+					<a href="#" th:href="@{/editar/{id}(id=${eventos.id})}">Editar</a> | 
+					<a href="#" th:href="@{/borrar/{id}(id=${eventos.id})}">Borrar</a>
+				</td>
+
+		</tbody>
+	
+	
+	
+	</table>
+	
+
+
+
+
+
+   	<footer th:replace="~{fragmentos/footer::footer}"></footer>
+
+
+</body>

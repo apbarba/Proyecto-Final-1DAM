@@ -33,7 +33,7 @@ public class EventosController {
 	@GetMapping("/eventoNuevo")
 	public String mostrarFormulario(Model model) {
 		
-		model.addAttribute("alumno", new EventosModel());
+		model.addAttribute("eventos", new EventosModel());
 		
 		return "Evento Nuevo";
 	}
@@ -53,7 +53,7 @@ public class EventosController {
 		
 		if (edit != null) {
 			
-			model.addAttribute("alumno", edit);
+			model.addAttribute("eventos", edit);
 			
 			return "Eventos";
 			

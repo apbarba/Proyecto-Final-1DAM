@@ -27,7 +27,7 @@ public class ProductosController {
 		}
 
 
-		@GetMapping({"/", "/eventos"}) //Ruta de donde se encuentra
+		@GetMapping({"/", "/productos"}) //Ruta de donde se encuentra
 		public String eventosBanda(Model model) {
 			
 			model.addAttribute("productosLista", productos.findAll());
@@ -43,7 +43,7 @@ public class ProductosController {
 			return "Producto Nuevo";
 		}
 		
-		@PostMapping("/ProductoNuevo/proceso")
+		@PostMapping("/productoNuevo/proceso")
 		public String procesarFormulario(@ModelAttribute("eventos") ProductosModel e) {
 			
 			productos.add(e);

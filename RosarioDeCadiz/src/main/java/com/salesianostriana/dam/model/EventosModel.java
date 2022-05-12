@@ -18,7 +18,7 @@ import lombok.NoArgsConstructor;
 @Builder
 public class EventosModel {
 	
-	private String localización; //Donde se celebrará el concierto
+	private String lugar; //Donde se celebrará el concierto
 	private LocalDate fecha;
 	
 	@Id
