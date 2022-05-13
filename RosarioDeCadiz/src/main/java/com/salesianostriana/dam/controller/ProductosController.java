@@ -24,12 +24,18 @@ public class ProductosController {
 			this.productos = productos;
 		}
 
-		@GetMapping({"/", "/productos"}) //Ruta de donde se encuentra
+		@GetMapping("/productos") //Ruta de donde se encuentra
 		public String eventosBanda(Model model) {
 			
 			model.addAttribute("productosLista", productos.findAll());
 			
 			return "Productos"; //El nombre de la página html en la que irá los eventos de la banda
+		}
+		
+		@GetMapping ("/Mostrarproductos")
+		public String mostrarProducto() {
+			
+			return "Productos";
 		}
 		
 		@GetMapping("/productoNuevo")

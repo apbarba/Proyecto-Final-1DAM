@@ -24,7 +24,7 @@ public class EventosController {
 	}
 
 
-	@GetMapping({"/", "/eventos"}) //Ruta de donde se encuentra
+	@GetMapping("/eventos") //Ruta de donde se encuentra
 	public String eventosBanda(Model model) {
 		
 		model.addAttribute("eventosLista", eventos.findAll());
@@ -33,9 +33,10 @@ public class EventosController {
 	}
 	
 	
-	@GetMapping ("/productos")
-	public String irPro () {
-		return "Productos";
+	@GetMapping ("/eventos")
+	public String mostrarEventos () {
+		
+		return "Eventos";
 	}
 	
 	@GetMapping("/eventoNuevo")
@@ -43,7 +44,7 @@ public class EventosController {
 		
 		model.addAttribute("eventos", new EventosModel());
 		
-		return "EventoNuevo"; //El nombre de la páguina en la que añadimos un evento nuevo
+		return "EventoNuevo"; //El nombre de la página en la que añadimos un evento nuevo
 	}
 	
 	@PostMapping("/eventoNuevo/proceso")

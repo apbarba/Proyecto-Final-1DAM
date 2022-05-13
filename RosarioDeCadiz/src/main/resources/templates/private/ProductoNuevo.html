@@ -1,0 +1,34 @@
+<!doctype html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head th:replace="~{fragmentos/menu::menu}">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<!-- Bootstrap CSS -->
+<link rel="stylesheet" href="/webjars/bootstrap/css/bootstrap.min.css" integrity="sha384-
+Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<title>Rosario de Cádiz</title>
+</head >
+<body>
+
+	<nav th:replace="~{fragmentos/menu::menu}"></nav>
+	
+	<div id="formulario">
+	
+		<form th:action="${eventos.id != 0} ? @{/editar/proceso} : @{/productoNuevo/proceso}" th:object="${eventos}" method="post">
+		
+			<input th:if="${eventos.id != 0}" type="hidden" name="id" th:field="*{id}" /> 
+				
+			<input type="text" name="nombre" th:field="*{nombre_producto}" placeholder="Nombre del Producto" /> 
+			
+			<input type= "text" name="asunto" th:field="*{asunto}" placeholder="Asunto" />
+		
+			<input type="text" name="organizador" th:field="*{organizador}" placeholder="Organizador" />
+			
+		</form>
+		
+	</div>
+
+   	<footer th:replace="~{fragmentos/footer::footer}"></footer>
+
+
+</body>
