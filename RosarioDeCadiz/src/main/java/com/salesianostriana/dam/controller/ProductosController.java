@@ -31,6 +31,7 @@ public class ProductosController {
 			
 			return "Productos"; //El nombre de la página html en la que irá los eventos de la banda
 		}
+
 		
 		@GetMapping ("/Mostrarproductos")
 		public String mostrarProducto() {
