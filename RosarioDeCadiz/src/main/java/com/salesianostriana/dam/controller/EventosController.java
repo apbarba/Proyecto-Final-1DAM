@@ -14,6 +14,15 @@ import com.salesianostriana.dam.servicios.EventosServicios;
 @Controller 
 public class EventosController {
 	
+	@GetMapping("/eventos")
+	public String eventos(Model model) {
+		
+		model.addAttribute("mensaje", "Venga por favor, que funcione");
+		
+		return "Eventos";
+	}
+	
+	
 	@Autowired
 	private EventosServicios eventos;
 	
@@ -24,19 +33,12 @@ public class EventosController {
 	}
 
 
-	@GetMapping("/eventos") //Ruta de donde se encuentra
+	@GetMapping("/lista") //Ruta de donde se encuentra
 	public String eventosBanda(Model model) {
 		
 		model.addAttribute("eventosLista", eventos.findAll());
 		
 		return "Eventos"; //El nombre de la página html en la que irá los eventos de la banda
-	}
-	
-	
-	@GetMapping ("/eventos")
-	public String mostrarEventos () {
-		
-		return "Eventos";
 	}
 	
 	@GetMapping("/eventoNuevo")
