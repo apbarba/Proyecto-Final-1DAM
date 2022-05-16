@@ -22,50 +22,38 @@ public class ProductosServicios {
 		this.productosRepository = repo;
 	}
 
+	public Productos add(Productos p) { 
+		
+		return productosRepository.save(p); 
+	}
+	
+	public Productos edit(Productos p) { 
+		
+		return productosRepository.save(p); 
+	}
 
-	/**
-	 * Inserta un nuevo alumno
-	 * 
-	 * @param a el Alumno a insertar
-	 * @return El alumno ya insertado (con el Id no vacío).
-	 */
-	public Productos add(Productos p) { return productosRepository.save(p); }
+	public void delete(Productos p ) { 
+		
+		productosRepository.delete(p);
+	}
 	
+	public void delete(long id) { 
+		
+		productosRepository.deleteById(id); 
+	}
 	
-	/**
-	 * Edita un alumno, si existe; si no, lo inserta como uno nuevo.
-	 * @param a
-	 * @return
-	 */
-	public Productos edit(Productos p) { return productosRepository.save(p); }
-
-	/**
-	 * Elimina el alumno
-	 * 
-	 * @param a
-	 */
-	public void delete(Productos p ) { productosRepository.delete(p); }
+	public List<Productos> findAll() {
+		
+		return productosRepository.findAll(); 
+	}
 	
-	/**
-	 * Elimina a un alumno por su Id
-	 * @param id
-	 */
-	public void delete(long id) { productosRepository.deleteById(id); }
-	
-	/**
-	 * Devuelve todos los alumnos
-	 * @return
-	 */
-	public List<Productos> findAll() { return productosRepository.findAll(); }
-	
-	
-	/**
-	 * Devuelve un alumno en base a su Id
-	 * @param id
-	 * @return el alumno encontrado o <code>null</code>
-	 */
 	public Productos findById(long id) {
+		
 		return productosRepository.findById(id).orElse(null);
+	}
+	
+	public List<Productos> findByNombre(String nombre){
+		return productosRepository.findByNombreContainingIgnoreCase(nombre);
 	}
 
 }

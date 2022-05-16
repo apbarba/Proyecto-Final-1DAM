@@ -15,19 +15,19 @@
 	<thead>
 		<tr>
 			<th>Id</th>
-			<th>Nombre</th>
-			<th>Apellidos</th>
-			<th>email</th>
-			<th>Operaciones</th>
+			<th>Fecha</th>
+			<th>Lugar</th>
+			<th>Asunto</th>
+			<th>Organizador</th>
 		</tr>
 	</thead>
 	<tbody>
 		<tr th:each="eventos : ${lista}">
 			<td th:text="${eventos.id}">1</td>
-			<td th:text="${eventos.fecha}">Nombre</td>
-			<td th:text="${eventos.lugar}">Apellidos</td>
-			<td th:text="${eventos.asunto}">Email</td>
-			<td th:text="${eventos.organizador}">Email</td>
+			<td th:text="${eventos.fecha}">Fecha</td>
+			<td th:text="${eventos.lugar}">Lugar</td>
+			<td th:text="${eventos.asunto}">Asunto</td>
+			<td th:text="${eventos.organizador}">Organizador</td>
 			
 				<td>
 				<a href="#" th:href="@{/editar/{id}(id=${eventos.id})}">Editar</a> | 
