@@ -16,16 +16,16 @@ import lombok.NoArgsConstructor;
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class EventosModel {
+public class Eventos {
 	
 	private String lugar; //Donde se celebrará el concierto
 	private LocalDate fecha;
 	
 	@Id
 	@GeneratedValue
-	private long id_evento;
+	private long id;
 	
 	private String asunto;
-	private String Organizador; //Hermandad que organiza el concierto
+	private String organizador; //Hermandad que organiza el concierto
 	
 }

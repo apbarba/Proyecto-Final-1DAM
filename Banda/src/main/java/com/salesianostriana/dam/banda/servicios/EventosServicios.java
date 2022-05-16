@@ -5,7 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import com.salesianostriana.dam.banda.model.EventosModel;
+import com.salesianostriana.dam.banda.model.Eventos;
 import com.salesianostriana.dam.banda.repository.EventosRepository;
 
 @Service 
@@ -27,7 +27,7 @@ public class EventosServicios {
 	 * @param a el Alumno a insertar
 	 * @return El alumno ya insertado (con el Id no vacío).
 	 */
-	public EventosModel add(EventosModel e) { return eventosRepository.save(e); }
+	public Eventos add(Eventos e) { return eventosRepository.save(e); }
 	
 	
 	/**
@@ -35,14 +35,14 @@ public class EventosServicios {
 	 * @param a
 	 * @return
 	 */
-	public EventosModel edit(EventosModel e) { return eventosRepository.save(e); }
+	public Eventos edit(Eventos e) { return eventosRepository.save(e); }
 
 	/**
 	 * Elimina el alumno
 	 * 
 	 * @param a
 	 */
-	public void delete(EventosModel e) { eventosRepository.delete(e); }
+	public void delete(Eventos e) { eventosRepository.delete(e); }
 	
 	/**
 	 * Elimina a un alumno por su Id
@@ -54,7 +54,7 @@ public class EventosServicios {
 	 * Devuelve todos los alumnos
 	 * @return
 	 */
-	public List<EventosModel> findAll() { return eventosRepository.findAll(); }
+	public List<Eventos> findAll() { return eventosRepository.findAll(); }
 	
 	
 	/**
@@ -62,7 +62,7 @@ public class EventosServicios {
 	 * @param id
 	 * @return el alumno encontrado o <code>null</code>
 	 */
-	public EventosModel findById(long id) {
+	public Eventos findById(long id) {
 		return eventosRepository.findById(id).orElse(null);
 	}
 
