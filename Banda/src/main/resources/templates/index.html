@@ -39,6 +39,21 @@
           <span class="visually-hidden">Next</span>
         </button>
       </div>
+      
+      <!--ANTES DE LAS TARJETAS-->
+       <section class="w-50 mx-auto text-center pt-5" id="intro">
+       
+          <h1 class="p-3 fs-2 border-top border-3">Siéntete<span class="text-dark p-2">Rosario</span></h1>
+          <p><span  class="text-dark">EL ORIGEN</span> La Banda de Cornetas y Tambores Nuestra Señora del 
+          Rosario Coronada nace el 7 de mayo de 1996 bajo la advocación del Santísimo Cristo de la Humildad y 
+          Paciencia de Cádiz con el particular estilo de la policía armada.
+          
+		Rosario de Cádiz comenzaba en sus inicios con unos setenta componentes (con edades comprendidas entre 13 
+		y 30 años), cabe destacar que en aquella época, era una cifra de componentes inicial bastante 
+		amplia, contando con un privilegiado y emblemático lugar de ensayo como son las Puertas de Tierra.
+		</p>
+		
+      </section>
 
     <!--TARJETAS-->
     <div class="row row-cols-1 row-cols-md-3 g-4">
@@ -75,43 +90,52 @@
     <section class="container-fluid">
       <div class="row w-75 mx-auto my-5 columna-1">
           <div class="col-sm d-flex my-5 icono-wrap">
-              <img src="/contenido/img/humildad_quienessomos.webp" alt="" width="180"
+              <img th:src= "@{media/rosario_quienessomos.webp}" alt="" width="180"
               height="160">
               <div>
-                  <h3 class="fs-5 mt-4 px-4 pb-1">EL ORIGEN</h3>
-                  <p class="px-4">La Banda de Cornetas y Tambores Nuestra Señora del 
-                    Rosario Coronada nace el 7 de mayo de 1996 bajo la advocación del 
-                    Santísimo Cristo de la Humildad y Paciencia de Cádiz con el 
-                    particular estilo de la policía armada.
-
-                    Rosario de Cádiz comenzaba en sus inicios con unos setenta 
-                    componentes (con edades comprendidas entre 13 y 30 años), cabe 
-                    destacar que en aquella época, era una cifra de componentes inicial 
-                    bastante amplia, contando con un privilegiado y emblemático lugar de 
-                    ensayo como son las Puertas de Tierra.
+                  <h3 class="fs-5 mt-4 px-4 pb-1 text-dark">DE TÚ HUMILDAD, UN ROSARIO</h3>
+                  <p class="px-4">En el año 2002 llega su primer trabajo discográfico,
+				“De tu humildad, un Rosario” con el sello de “Melody Record”, grabado en 
+				los “Estudios Alameda” de la capital hispalense. En él colaboraron autores 
+				como Jorge Águila, Isaac Gómez y Sergio Larrinaga.
+				
+				Durante un gran período de tiempo la banda tiene una serie de compromisos en 
+				ciudades como Cádiz, Jerez de la Frontera, San Fernando, Dos Hermanas y Ronda, entre otras.
                   </p>
               </div>
           </div>
           <div class="col-sm d-flex  my-5 icono-wrap">
-            <img src="./img/movil.png" alt="" width="180"
+            <img th:src= "@{media/humildad_quienessomos.webp}" alt="" width="180"
             height="160">
             <div>
-                <h3 class="fs-5 mt-4 px-4 pb-1">ROSARIO CORONADA</h3>
-                <p class="px-4">En 1998 por motivos ajenos a la formación, la banda 
-                  adopta el nombre de la Patrona de Cádiz, Nuestra Señora del Rosario 
-                  Coronada, fundándose así la Asociación Musical Nuestra Señora del 
-                  Rosario.
+                <h3 class="fs-5 mt-4 px-4 pb-1">EN NUESTROS CORAZONES</h3>
+                <p class="px-4">En la cuaresma de 2004 llega el segundo trabajo discográfico titulado
+				“En nuestros corazones” donde se involucran componentes como Sergio Larrinaga Soler, 
+				Francisco Jesús Serén García y José Ricardo Touzón Capote, quienes por entonces empiezan 
+				a responsabilizarse de la Dirección Musical, conformándose así poco a poco el estilo musical 
+				que la formación tiene en la actualidad.
 
-                  Un año después, en la cuaresma de 1999, la banda de Cornetas y 
-                  Tambores Nuestra Señora del Rosario Coronada se presenta en la 
-                  Iglesia de Santa Cruz (Cádiz), siendo amadrinada por la Banda de 
-                  Cornetas y Tambores de la Presentación al Pueblo de la localidad 
-                  sevillana de Dos Hermanas.
                 </p>
             </div>
         </div>
       </div>
     </section>
+    
+      <section>
+            <div class="w-50 m-auto text-center" id="informacion">
+                <h1 class="mb-5 fs-2 border-top border-3">Siéntete <span class="text-info">Rosario</span></h1>
+
+                <p class="fs-4">En el año 2017, Rosario de Cádiz se estrena en la Semana Santa hispalense tras 
+                la Hermandad de la Sed en el barrio de Nervión, una jornada de Miércoles Santo histórica para 
+                la formación y que obtuvo un gran recibimiento de la ciudad de Sevilla con unos lazos de unión 
+                que a día de hoy siguen existiendo. Un Miércoles Santo que quedó grabado en un trabajo audiovisual 
+                bajo el título de “…Para la Eternidad” con sello de la empresa Banian.
+                </p>
+            </div>
+            <div class="mt-e text-center">
+                <img th:src= "@{media/sentirse.webp}" height="500" width="750" alt="Nada">
+            </div>
+        </section>
 	
 	<footer th:replace="~{fragmentos/pie::pie}"></footer>
 	

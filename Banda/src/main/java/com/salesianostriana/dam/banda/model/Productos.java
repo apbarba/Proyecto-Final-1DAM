@@ -23,4 +23,5 @@ public class Productos {
 	@Id
 	@GeneratedValue
 	private long id;
+
 }
