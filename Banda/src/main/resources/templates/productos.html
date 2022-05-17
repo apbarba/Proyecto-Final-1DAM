@@ -9,6 +9,12 @@
 	<div id="menu">
 		 <a th:href="@{/nuevoProducto}">Producto Nuevo</a>
 </div>
+
+<form method="get" th:action = "@{/buscar}">
+	<input type ="text" placeholder = "Nombre del Producto"
+		name = "nombre" id= "nombre" th:value="${param.nombre}">
+	<input type="submit" value="Enviar">
+</form>
 	
 	<table class="table table-striped">
 		

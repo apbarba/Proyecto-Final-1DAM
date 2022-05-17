@@ -34,20 +34,20 @@ public class CarritoController {
     	return "productos";
     }
 
-    @GetMapping ("/productoACarrito/{id}")
-    public String productoACarrito (@PathVariable("id") Long id, Model model) {
-    	
-    	carritoServicios.addProducto(productosServicios.findById(id));
-    	    		 	
-    	return "redirect:/carrito";
-    }
-    
-    @GetMapping("/borrarProducto/{id}")
-    public String removeProductFromCart(@PathVariable("id") Long id) {
-        
-    	carritoServicios.removeProducto(productosServicios.findById(id));
-        return "redirect:/carrito";
-    }
+//    @GetMapping ("/productoACarrito/{id}")
+//    public String productoACarrito (@PathVariable("id") Long id, Model model) {
+//    	
+//    	carritoServicios.addProducto(productosServicios.findById(id));
+//    	    		 	
+//    	return "redirect:/carrito";
+//    }
+//    
+//    @GetMapping("/borrarProducto/{id}")
+//    public String removeProductFromCart(@PathVariable("id") Long id) {
+//        
+//    	carritoServicios.removeProducto(productosServicios.findById(id));
+//        return "redirect:/carrito";
+//    }
     
     @ModelAttribute("total_carrito")
     public Double totalCarrito () {

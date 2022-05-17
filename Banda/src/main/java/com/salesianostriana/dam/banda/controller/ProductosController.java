@@ -7,6 +7,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.banda.model.Productos;
 import com.salesianostriana.dam.banda.servicios.ProductosServicios;
@@ -35,6 +36,14 @@ public class ProductosController {
 		return "productos";
 	}
 	
+	@GetMapping("/buscar")
+	public String buscar(Model model, @RequestParam String nombre) {
+		
+		model.addAttribute("lista", productosServicio.buscarPorNombre(nombre));
+		
+		return "productos";
+	}
+	
 	@GetMapping("/nuevoProducto")
 	public String mostrarFormulario(Model model) {
 		
@@ -49,7 +58,7 @@ public class ProductosController {
 		
 		productosServicio.add(p);
 		
-		return "redirect:/";//Podría ser también return "redirect:/list
+		return "redirect:/";
 	}
 	
 	
@@ -67,8 +76,7 @@ public class ProductosController {
 			return "formularioProductos";
 			
 		} else {
-			// No existe ningún alumno con el Id proporcionado.
-			// Redirigimos hacia el listado.
+			
 			return "redirect:/";
 		}
 		
@@ -80,7 +88,7 @@ public class ProductosController {
 		
 		productosServicio.edit(p);
 		
-		return "redirect:/";//Volvemos a redirigir la listado a través del controller para pintar la lista actualizada con la modificación hecha
+		return "redirect:/";
 	}
 	
 	/**
