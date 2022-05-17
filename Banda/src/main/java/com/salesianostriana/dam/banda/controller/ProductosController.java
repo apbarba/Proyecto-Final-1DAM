@@ -17,7 +17,7 @@ public class ProductosController {
 	
 //	@GetMapping("/eventos") 
 //	public String otra(Model model){
-//		model.addAttribute("mensaje", "Esto si cojones");
+//		model.addAttribute("mensaje", "Funciona");
 //		return "eventos";//Mostramos la página eventos
 //	}
 
@@ -61,9 +61,6 @@ public class ProductosController {
 		return "redirect:/";
 	}
 	
-	
-	
-	
 	@GetMapping("/editarProducto/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {		 
 		
@@ -91,11 +88,6 @@ public class ProductosController {
 		return "redirect:/";
 	}
 	
-	/**
-	 * Método que borrar un alumno por su Id
-	 * @param id
-	 * @return
-	 */
 	@GetMapping("/borrarProducto/{id}")
 	public String borrar(@PathVariable("id") long id) {
 		

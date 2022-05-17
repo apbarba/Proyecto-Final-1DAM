@@ -16,7 +16,7 @@ public class EventosController {
 	
 //	@GetMapping("/eventos") 
 //	public String otra(Model model){
-//		model.addAttribute("mensaje", "Esto si cojones");
+//		model.addAttribute("mensaje", "Funciona");
 //		return "eventos";//Mostramos la página eventos
 //	}
 
@@ -86,11 +86,6 @@ public class EventosController {
 		return "redirect:/";//Volvemos a redirigir la listado a través del controller para pintar la lista actualizada con la modificación hecha
 	}
 	
-	/**
-	 * Método que borrar un alumno por su Id
-	 * @param id
-	 * @return
-	 */
 	@GetMapping("/borrar/{id}")
 	public String borrar(@PathVariable("id") long id) {
 		
