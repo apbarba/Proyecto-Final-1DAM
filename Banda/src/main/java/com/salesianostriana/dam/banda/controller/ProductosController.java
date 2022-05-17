@@ -23,10 +23,6 @@ public class ProductosController {
 
 	@Autowired
 	private ProductosServicios productosServicio;
-	
-	public ProductosController(ProductosServicios servicio) {
-		this.productosServicio = servicio;
-	}
 
 	@GetMapping("/lista")
 	public String listarTodos(Model model) {
