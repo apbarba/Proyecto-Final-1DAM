@@ -40,7 +40,7 @@ public class ProductosController {
 		return "productos";
 	}
 	
-	@GetMapping("/nuevoProducto")
+	@GetMapping("/admin/nuevoProducto")
 	public String mostrarFormulario(Model model) {
 		
 		model.addAttribute("productos", new Productos());
@@ -49,7 +49,7 @@ public class ProductosController {
 	}
 	
 	
-	@PostMapping("/productoNuevo/submit")
+	@PostMapping("/admin/productoNuevo/submit")
 	public String procesarFormulario(@ModelAttribute("productos") Productos p) {
 		
 		productosServicio.add(p);
@@ -60,7 +60,7 @@ public class ProductosController {
 	
 	
 	
-	@GetMapping("/editarProducto/{id}")
+	@GetMapping("/admin/editarProducto/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {		 
 		
 		Productos aEditar = productosServicio.findById(id);
@@ -79,7 +79,7 @@ public class ProductosController {
 		
 	}
 	
-	@PostMapping("/editarProducto/submit")
+	@PostMapping("/admin/editarProducto/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("productos") Productos p) {
 		
 		productosServicio.edit(p);
@@ -92,7 +92,7 @@ public class ProductosController {
 	 * @param id
 	 * @return
 	 */
-	@GetMapping("/borrarProducto/{id}")
+	@GetMapping("/admin/borrarProducto/{id}")
 	public String borrar(@PathVariable("id") long id) {
 		
 		productosServicio.delete(id);
