@@ -16,7 +16,7 @@ public class EventosController {
 	
 //	@GetMapping("/eventos") 
 //	public String otra(Model model){
-//		model.addAttribute("mensaje", "Esto si cojones");
+//		model.addAttribute("mensaje", "Funciona");
 //		return "eventos";//Mostramos la página eventos
 //	}
 
@@ -49,7 +49,7 @@ public class EventosController {
 		
 		eventosServicio.add(e);
 		
-		return "redirect:/";//Podría ser también return "redirect:/list
+		return "redirect:/";
 	}
 	
 	
@@ -58,7 +58,6 @@ public class EventosController {
 	@GetMapping("/editar/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {
 		
-		//Buscamos al alumno por id y recordemos que el método findById del servicio, devuelve el objeto buscado o null si no se encuentra.
 		 
 		
 		Eventos aEditar = eventosServicio.findById(id);
@@ -70,8 +69,7 @@ public class EventosController {
 			return "formularioEvento";
 			
 		} else {
-			// No existe ningún alumno con el Id proporcionado.
-			// Redirigimos hacia el listado.
+	
 			return "redirect:/";
 		}
 		
@@ -83,14 +81,9 @@ public class EventosController {
 		
 		eventosServicio.edit(a);
 		
-		return "redirect:/";//Volvemos a redirigir la listado a través del controller para pintar la lista actualizada con la modificación hecha
+		return "redirect:/";
 	}
 	
-	/**
-	 * Método que borrar un alumno por su Id
-	 * @param id
-	 * @return
-	 */
 	@GetMapping("/borrar/{id}")
 	public String borrar(@PathVariable("id") long id) {
 		

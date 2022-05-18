@@ -17,7 +17,7 @@ public class ProductosController {
 	
 //	@GetMapping("/eventos") 
 //	public String otra(Model model){
-//		model.addAttribute("mensaje", "Esto si cojones");
+//		model.addAttribute("mensaje", "funciona");
 //		return "eventos";//Mostramos la página eventos
 //	}
 
@@ -40,7 +40,7 @@ public class ProductosController {
 		return "productos";
 	}
 	
-	@GetMapping("/admin/nuevoProducto")
+	@GetMapping("/nuevoProducto")
 	public String mostrarFormulario(Model model) {
 		
 		model.addAttribute("productos", new Productos());
@@ -49,18 +49,18 @@ public class ProductosController {
 	}
 	
 	
-	@PostMapping("/admin/productoNuevo/submit")
+	@PostMapping("/productoNuevo/submit")
 	public String procesarFormulario(@ModelAttribute("productos") Productos p) {
 		
 		productosServicio.add(p);
 		
-		return "redirect:/";
+		return "redirect:/list";
 	}
 	
 	
 	
 	
-	@GetMapping("/admin/editarProducto/{id}")
+	@GetMapping("/editarProducto/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {		 
 		
 		Productos aEditar = productosServicio.findById(id);
@@ -73,30 +73,25 @@ public class ProductosController {
 			
 		} else {
 			
-			return "redirect:/";
+			return "redirect:/lista";
 		}
 		
 		
 	}
 	
-	@PostMapping("/admin/editarProducto/submit")
+	@PostMapping("/editarProducto/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("productos") Productos p) {
 		
 		productosServicio.edit(p);
 		
-		return "redirect:/";
+		return "redirect:/lista";
 	}
 	
-	/**
-	 * Método que borrar un alumno por su Id
-	 * @param id
-	 * @return
-	 */
-	@GetMapping("/admin/borrarProducto/{id}")
+	@GetMapping("/borrarProducto/{id}")
 	public String borrar(@PathVariable("id") long id) {
 		
 		productosServicio.delete(id);
 		
-		return "redirect:/";
+		return "redirect:/lista";
 	}
 }

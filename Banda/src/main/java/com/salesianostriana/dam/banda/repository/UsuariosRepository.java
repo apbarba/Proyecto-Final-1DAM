@@ -19,33 +19,31 @@ public class UsuariosRepository {
 		return Collections.unmodifiableList(usuarios);
 	}
 
-//	public Optional<Usuarios> findUserByUsername(String username) {
-//		return usuarios.stream()
-//				.filter(u -> u.getUsername().equals(username))
-//				.findFirst();
-//	}
-//	
-//	@PostConstruct
-//	public void init() {
-//		usuarios = List.of(
-//				Usuarios.builder()
-//					.username("luismi")
-//					.password("12345678")
-//					.role("ADMIN")
-//					.nombre("Luis Miguel")
-//					.apellidos("López Magaña")
-//					.build()
-//				,
-//				Usuarios.builder()
-//				.username("angel")
-//				.password("87654321")
-//				.role("USER")
-//				.nombre("Ángel")
-//				.apellidos("Naranjo González")
-//				.build()
-//				
-//				
-//				);
-//				
-//	}
+	public Optional<Usuarios> findUserByUsername(String username) {
+		return usuarios.stream()
+				.filter(u -> u.getUsername().equals(username))
+				.findFirst();
+	}
+	
+	@PostConstruct
+	public void init() {
+		usuarios = List.of(
+				Usuarios.builder()
+					.username("admin")
+					.password("admin")
+					.role("ADMIN")
+					.nombre("Admin")
+					.build()
+				,
+				Usuarios.builder()
+				.username("user")
+				.password("1234")
+				.role("USER")
+				.nombre("User")
+				.build()
+				
+				
+				);
+				
+	}
 }

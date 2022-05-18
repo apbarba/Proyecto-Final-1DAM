@@ -21,7 +21,6 @@ public class Productos {
 	private int cantidad;
 	private double precio;
 	private boolean disponibilidad;
-	private String img;
 	
 	@Id
 	@GeneratedValue
@@ -57,14 +56,6 @@ public class Productos {
 
 	public void setDisponibilidad(boolean disponibilidad) {
 		this.disponibilidad = disponibilidad;
-	}
-
-	public String getImg() {
-		return img;
-	}
-
-	public void setImg(String img) {
-		this.img = img;
 	}
 
 	public long getId() {

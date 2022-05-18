@@ -8,7 +8,7 @@ public class PublicController {
 
 	@GetMapping("/")
 	public String welcome() {
-		return "index";
+		return "formulario";
 	}
 
 

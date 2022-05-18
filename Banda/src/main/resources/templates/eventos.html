@@ -25,7 +25,7 @@
 </style>
 <body>
 
-	<nav th:replace="~{fragmentos/encabezado::encabezado}"></nav>
+	<nav th:replace="~{fragmentos/menu::menu}"></nav>
 	<div id="menu">
 		 <a th:href="@{/nuevo}">Evento Nuevo</a>
 </div>
@@ -59,7 +59,7 @@
 		
 	</table>
 	
-	<footer th:replace="~{fragmentos/pie::pie}"></footer>
+	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 	
 	<th:block th:replace=~{fragmentos/jsfinal::javascriptfinal}></th:block>
 </body>

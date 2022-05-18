@@ -25,9 +25,9 @@
 </style>
 <body>
 
-	<nav th:replace="~{fragmentos/encabezado::encabezado}"></nav>
+	<nav th:replace="~{fragmentos/menu::menu}"></nav>
 	<div id="menu">
-		 <a th:href="@{/admin/nuevoProducto}">Producto Nuevo</a>
+		 <a th:href="@{/nuevoProducto}">Producto Nuevo</a>
 </div>
 
 <form id="buscar" class="d-flex" method="get" th:action = "@{/buscar}">
@@ -65,7 +65,7 @@
 		
 	</table>
 	
-	<footer th:replace="~{fragmentos/pie::pie}"></footer>
+	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 	
 	<th:block th:replace=~{fragmentos/jsfinal::javascriptfinal}></th:block>
 </body>

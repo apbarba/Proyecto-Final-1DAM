@@ -12,7 +12,7 @@
 
 <body>
 	
-	<nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="encabezado">
+	<nav class="navbar navbar-expand-lg navbar-light bg-light" th:fragment="menu">
   		<div class="container-fluid">
    			 <span class="text-danger fs-5 fx-bold"><img th:src= "@{media/logo.png}" class="d-block w-100" alt="logo" width="100" height="100"></span>
     		<button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
@@ -26,8 +26,11 @@
 					<li class="nav-item"><a class="nav-link" href="/lista">Productos</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Repertorio</a></li>
 					<li class="nav-item"><a class="nav-link" href="/carrito">Carrito</a></li>
-					<li class="nav-item"><a class="nav-link" th:href="@{/logout}">Salir</a></li>
-					<li class="nav-item"><a class="nav-link" href="/admin">Administrador</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/admin}">Administrador</a></li>
+					<li class="nav-item"><a class="nav-link" th:href="@{/login}">Usuario</a></li>
+					<form th:action="@{/login}" method="post">
+						<input type="submit" value="Cerrar Sesion">
+					</form>
 				</ul>
       			</div>
     		</div>

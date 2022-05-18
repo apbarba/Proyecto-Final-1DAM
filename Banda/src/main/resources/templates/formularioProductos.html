@@ -39,11 +39,11 @@ form{
 
 <body>
 
-	<nav th:replace="~{fragmentos/encabezado::encabezado}"></nav>
+	<nav th:replace="~{fragmentos/menu::menu}"></nav>
 
 	<div class="container" id="formulario">
 	
-		<form id="productos" class="mb-3" th:action="${productos.id != 0} ? @{/admin/editarProducto/submit} : @{/admin/productoNuevo/submit}" th:object="${productos}" method="post">
+		<form id="productos" class="mb-3" th:action="${productos.id != 0} ? @{/editarProducto/submit} : @{/productoNuevo/submit}" th:object="${productos}" method="post">
 			
 			<input th:if="${productos.id != 0}" type="hidden" name="id" th:field="*{id}" /> 
 			
