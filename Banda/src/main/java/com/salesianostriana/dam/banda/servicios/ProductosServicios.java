@@ -5,6 +5,8 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+
+import com.salesianostriana.dam.banda.model.Categoria;
 import com.salesianostriana.dam.banda.model.Productos;
 import com.salesianostriana.dam.banda.repository.ProductosRepository;
 
@@ -54,5 +56,9 @@ public class ProductosServicios {
 		
 		return productosRepository.findByNombreContainsIgnoreCase(nombre);
 	}
+	
+//	public List<Productos> findAllByCategoria(Long categoriaId) {
+//		return productosRepository.findByCategoriaId(categoriaId);
+//	}
 
 }

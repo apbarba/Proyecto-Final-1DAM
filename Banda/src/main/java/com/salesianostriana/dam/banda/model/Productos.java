@@ -1,10 +1,10 @@
 package com.salesianostriana.dam.banda.model;
 
-import java.util.Objects;
-
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
+import javax.persistence.ManyToOne;
+
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -17,14 +17,15 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Productos {
 	
-	private String nombre;
-	private int cantidad;
-	private double precio;
-	private boolean disponibilidad;
-	
 	@Id
 	@GeneratedValue
 	private long id;
+	private String nombre;
+	private int cantidad;
+	private double precio;
+	
+	@ManyToOne
+	private Categoria categorias;
 
 	public String getNombre() {
 		return nombre;
@@ -50,13 +51,6 @@ public class Productos {
 		this.precio = precio;
 	}
 
-	public boolean isDisponibilidad() {
-		return disponibilidad;
-	}
-
-	public void setDisponibilidad(boolean disponibilidad) {
-		this.disponibilidad = disponibilidad;
-	}
 
 	public long getId() {
 		return id;

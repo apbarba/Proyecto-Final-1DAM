@@ -62,9 +62,17 @@ form{
 				<input type="text" name="precio" th:field="*{precio}" placeholder="Precio" />
 			</div>
 			
-			<div class="mb-3">
-				<label class="form-label">Disponibilidad</label>
-				<input type="text" name="disponibilidad" th:field="*{disponibilidad}" placeholder="Disponibilidad" />
+				<div>
+				<label>Categorias</label>
+				<div class="form-check ml-3">
+					<select th:field="*{categorias}">
+						<option value="-1">---</option>
+						<option th:each="categoria : ${categorias}" th:value="${categoria.id}"
+							th:text="${categoria.nombre}">
+							Categoria
+						</option>
+					</select>
+				</div>
 			</div>
 			
 			<input type="submit" name="enviar" value="Enviar" />

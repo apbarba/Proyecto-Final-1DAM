@@ -25,12 +25,15 @@
 					<li class="nav-item"><a class="nav-link" href="/list">Eventos</a></li>
 					<li class="nav-item"><a class="nav-link" href="/lista">Productos</a></li>
 					<li class="nav-item"><a class="nav-link" href="#">Repertorio</a></li>
-					<li class="nav-item"><a class="nav-link" href="/carrito">Carrito</a></li>
-					<li class="nav-item"><a class="nav-link" th:href="@{/admin}">Administrador</a></li>
-					<li class="nav-item"><a class="nav-link" th:href="@{/login}">Usuario</a></li>
-					<form th:action="@{/login}" method="post">
-						<input type="submit" value="Cerrar Sesion">
-					</form>
+        			<li class="nav-item dropdown">
+        				<a class="nav-link dropdown-toggle" href="/categoria" id="navbarDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
+           				 Categorias
+          				</a>
+          	            <ul class="dropdown-menu" aria-labelledby="navbarDropdown">
+							<li><a class="dropdown-item" href="#">Ropa</a></li>
+            				<li><a class="dropdown-item" href="#">Accesorios</a></li>
+          				</ul>
+        			</li>
 				</ul>
       			</div>
     		</div>
