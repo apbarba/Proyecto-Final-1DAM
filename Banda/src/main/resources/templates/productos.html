@@ -44,7 +44,7 @@
 			<th>Nombre</th>
 			<th>Cantidad</th>
 			<th>Precio</th>
-			<th>Disponibilidad</th>
+			<th>Vista Producto</th>
 		</tr>
 	</thead>
 	<tbody>
@@ -53,6 +53,7 @@
 			<td th:text="${productos.nombre}">Nombre</td>
 			<td th:text="${productos.cantidad}">Cantidad</td>
 			<td th:text="${productos.precio}">Precio</td>
+			<td>Vista Productos</td>
 			
 				<td>
 				<a href="#" th:href="@{/editarProducto/{id}(id=${productos.id})}">Editar</a> | 
@@ -63,7 +64,42 @@
 		</tbody>
 		
 	</table>
+	<!-->
 	
+	<div class="card-deck" th:each="productos : ${lista}">
+  		
+  		<div class="card">
+    		<img class="card-img-top" src="..." alt="Card image cap">
+    		<div class="card-body">
+      			<h5 class="card-title"th:text="${productos.nombre}">Nombre</h5>
+      			<p class="card-text" th:text="${productos.cantidad}"></p>
+      			<p class="card-text" th:text="${productos.precio}"></p>
+    		</div>	
+  		</div>
+  		
+  		<div class="card">
+    		<img class="card-img-top" src="..." alt="Card image cap">
+    		<div class="card-body">
+      			<h5 class="card-title"th:text="${productos.nombre}">Nombre</h5>
+      			<p class="card-text" th:text="${productos.cantidad}"></p>
+      			<p class="card-text" th:text="${productos.precio}"></p>
+    		</div>
+  		</div>
+  		
+  		<div class="card">
+    		<img class="card-img-top" src="..." alt="Card image cap">
+    		<div class="card-body">
+    			<h5 class="card-title"th:text="${productos.nombre}">Nombre</h5>
+      			<p class="card-text" th:text="${productos.cantidad}"></p>
+      			<p class="card-text" th:text="${productos.precio}"></p>
+          		<a href="#" class="btn btn-primary" th:href="@{/editarProducto/{id}(id=${productos.id})}">Editar</a>
+   		  		<a href="#" class="btn btn-primary"th:href="@{/borrarProducto/{id}(id=${productos.id})}">Borrar</>
+    	</div>
+  </div>
+
+
+<!-->
+	</div>
 	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 	
 	<th:block th:replace=~{fragmentos/jsfinal::javascriptfinal}></th:block>

@@ -26,6 +26,8 @@ public class Productos {
 	
 	@ManyToOne
 	private Categoria categorias;
+	
+	private String foto;
 
 	public String getNombre() {
 		return nombre;
@@ -58,6 +60,22 @@ public class Productos {
 
 	public void setId(long id) {
 		this.id = id;
+	}
+
+	public Categoria getCategorias() {
+		return categorias;
+	}
+
+	public void setCategorias(Categoria categorias) {
+		this.categorias = categorias;
+	}
+
+	public String getFoto() {
+		return foto;
+	}
+
+	public void setFoto(String foto) {
+		this.foto = foto;
 	}
 	
 

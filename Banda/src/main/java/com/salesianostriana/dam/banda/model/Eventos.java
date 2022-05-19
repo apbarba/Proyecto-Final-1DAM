@@ -18,13 +18,13 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Eventos {
 	
-	private String lugar; //Donde se celebrará el concierto
-	private LocalDate fecha;
-	
+
 	@Id
 	@GeneratedValue
 	private long id;
 	
+	private String lugar; //Donde se celebrará el concierto
+	private LocalDate fecha;
 	private String asunto;
 	private String organizador; //Hermandad que organiza el concierto
 	

@@ -21,49 +21,62 @@ public class EventosServicios {
 	}
 
 
-	/**
-	 * Inserta un nuevo alumno
-	 * 
-	 * @param a el Alumno a insertar
-	 * @return El alumno ya insertado (con el Id no vacío).
-	 */
-	public Eventos add(Eventos e) { return eventosRepository.save(e); }
-	
-	
-	/**
-	 * Edita un alumno, si existe; si no, lo inserta como uno nuevo.
-	 * @param a
-	 * @return
-	 */
-	public Eventos edit(Eventos e) { return eventosRepository.save(e); }
 
-	/**
-	 * Elimina el alumno
-	 * 
-	 * @param a
-	 */
-	public void delete(Eventos e) { eventosRepository.delete(e); }
+	public Eventos add(Eventos e) { 
+		
+		return eventosRepository.save(e); 
+		
+	}
 	
-	/**
-	 * Elimina a un alumno por su Id
-	 * @param id
-	 */
-	public void delete(long id) { eventosRepository.deleteById(id); }
+
+	public Eventos edit(Eventos e) { 
+		
+		return eventosRepository.save(e); 
+		
+	}
+
 	
-	/**
-	 * Devuelve todos los alumnos
-	 * @return
-	 */
-	public List<Eventos> findAll() { return eventosRepository.findAll(); }
+	public void delete(Eventos e) { 
+		
+		eventosRepository.delete(e);
+		
+	}
+	
+
+	public void delete(long id) {
+		
+		eventosRepository.deleteById(id); 
+		
+	}
+	
+
+	public List<Eventos> findAll() { 
+		
+		return eventosRepository.findAll(); 
+		
+	}
 	
 	
-	/**
-	 * Devuelve un alumno en base a su Id
-	 * @param id
-	 * @return el alumno encontrado o <code>null</code>
-	 */
+
 	public Eventos findById(long id) {
+		
 		return eventosRepository.findById(id).orElse(null);
 	}
 
+	/**
+	 * Lógica de negocio en el cual no se podrá añadir un evento el mismo día que otro,
+	 * por lo que debemos de buscar en la base de datos si ese evento que queremos añadir
+	 * tiene una fecha en la cual no haya algún concierto, si es así, no se añadirá
+	 * 
+	 * @param eventos
+	 * @return
+	 */
+//	public Eventos comprobarFecha(Eventos eventos) {
+//		
+//		if{
+//			eventos
+//		}
+//		
+//		
+//	}
 }
