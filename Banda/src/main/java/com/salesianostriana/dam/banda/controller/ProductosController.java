@@ -30,6 +30,7 @@ public class ProductosController {
 
 	@Autowired
 	private CategoriaServicios categoriaServicios;
+	
 	@GetMapping("/lista")
 	public String listarTodos(Model model) {
 		
@@ -50,6 +51,8 @@ public class ProductosController {
 	public String mostrarFormulario(Model model) {
 		
 		model.addAttribute("productos", new Productos());
+		
+		model.addAttribute("categorias", categoriaServicios.findAll());
 		
 		return "formularioProductos";
 	}
@@ -74,6 +77,8 @@ public class ProductosController {
 		if (aEditar != null) {
 			
 			model.addAttribute("productos", aEditar);
+			
+			model.addAttribute("categorias", categoriaServicios.findAll());
 			
 			return "formularioProductos";
 			
@@ -103,8 +108,36 @@ public class ProductosController {
 	
 	@ModelAttribute("categorias")
 	public List<Categoria> categorias() {
+		
 		return categoriaServicios.findAll();
 	}
+	
+	/**
+	 * Nos llevará a la página ropa en la que se mostrarán los productos
+	 * catalogados como ropa
+	 * @return
+	 */
+//	@GetMapping("/categoriaRopa")
+//	public String ropa() {
+//		
+//		productosServicio.productosRopa();
+//		
+//		return "ropa";
+//	}
+//	
+//	/**
+//	 * Nos llevará a la página accesorio y se mostrarán los productos
+//	 * que tengan como categoria accesorios
+//	 * @return
+//	 */
+//	@GetMapping("/categoriaAccesorios")
+//	public String accesorios(){
+//		
+//		productosServicio.productosAccesorios();
+//		
+//		return "accesorios";
+//	}
+
 
 }
 

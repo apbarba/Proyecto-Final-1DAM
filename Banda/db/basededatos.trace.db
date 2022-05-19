@@ -7834,3 +7834,11 @@ INSERT INTO productos (id, nombre, cantidad, precio, categoria_id) VALUES (5,'Ca
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1226)
 	at org.springframework.boot.SpringApplication.run(SpringApplication.java:1215)
 	at com.salesianostriana.dam.banda.Application.main(Application.java:10)
+2022-05-19 12:32:51 jdbc[13]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "SELECT * EVENTOS[*]"
+Syntax error in SQL statement "SELECT * EVENTOS[*]"; SQL statement:
+SELECT * EVENTOS [42000-200]
+2022-05-19 13:29:05 jdbc[3]: exception
+org.h2.jdbc.JdbcSQLSyntaxErrorException: Error de Sintaxis en sentencia SQL "INSERT INTO EVENTOS ()[*]"; se esperaba "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"
+Syntax error in SQL statement "INSERT INTO EVENTOS ()[*]"; expected "DIRECT, SORTED, DEFAULT, VALUES, SET, (, WITH, SELECT, TABLE, VALUES"; SQL statement:
+INSERT INTO eventos () [42001-200]

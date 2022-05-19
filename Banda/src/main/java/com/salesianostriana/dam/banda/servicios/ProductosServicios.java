@@ -60,5 +60,22 @@ public class ProductosServicios {
 //	public List<Productos> findAllByCategoria(Long categoriaId) {
 //		return productosRepository.findByCategoriaId(categoriaId);
 //	}
+	
+//	/**
+//	 * Devolverá los productos que tengan como  categoria ropa
+//	 */
+//	public List<Productos> productosRopa(){
+//		
+//		return productosRepository.productosRopa();
+//	}
+//	
+//	/**
+//	 * Devolverá los productos que tengan como categoria accesorios
+//	 * @return
+//	 */
+//	public List<Productos> productosAccesorios(){
+//		
+//		return productosRepository.productosAccesorios();
+//	}
 
 }

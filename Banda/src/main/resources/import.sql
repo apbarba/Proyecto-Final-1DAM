@@ -9,3 +9,5 @@ INSERT INTO productos (id, nombre, cantidad, precio, categorias_id) VALUES (5,'P
 INSERT INTO productos (id, nombre, cantidad, precio, categorias_id) VALUES (6,'Calcetines',100, 5.00,1);
 INSERT INTO productos (id, nombre, cantidad, precio, categorias_id) VALUES (7,'Camiseta',100, 25.00,1);
 
+
+

@@ -32,7 +32,9 @@ public class CategoriaController {
 	
 	@GetMapping("/categoriaNueva")
 	public String nuevaCategoria(Model model) {
+		
 		model.addAttribute("categoria", new Categoria());
+		
 		return "/formularioCategoria";
 	}
 	
