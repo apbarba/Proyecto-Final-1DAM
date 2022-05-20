@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head th:replace="~{fragmentos/head::head}">
+       
+</head>
+<style>
+	table{
+            width: 85%;
+            margin: 0 auto;
+            border: 2px lightblue solid;
+            border-collapse: collapse;
+            padding: 5px;
+            background-color: rgb(243, 251, 253);
+        }
+        td{
+            border: 2px lightblue solid;
+            padding: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        th{
+            background-color: lightblue;
+            font-family: Arial, Helvetica, sans-serif;
+            font-style: oblique;
+        }
+</style>
+<body>
+
+	<nav th:replace="~{fragmentos/menu::menu}"></nav>
+	<div id="menu">
+		 <a class="btn btn-primary" th:href="@{/nuevo}">Evento Nuevo</a>
+</div>
+	
+	<table class="table table-striped">
+		
+	<thead>
+		<tr>
+			<th>Id</th>
+			<th>Fecha</th>
+			<th>Lugar</th>
+			<th>Asunto</th>
+			<th>Organizador</th>
+		</tr>
+	</thead>
+	<tbody>
+		<tr th:each="eventos : ${lista}">
+			<td th:text="${eventos.id}">1</td>
+			<td th:text="${eventos.fecha}">Fecha</td>
+			<td th:text="${eventos.lugar}">Lugar</td>
+			<td th:text="${eventos.asunto}">Asunto</td>
+			<td th:text="${eventos.organizador}">Organizador</td>
+			
+				<td>
+				<a href="#" th:href="@{/editar/{id}(id=${eventos.id})}">Editar</a> | 
+				<a href="#" th:href="@{/borrar/{id}(id=${eventos.id})}">Borrar</a>
+			</td>
+		
+
+		</tbody>
+		
+	</table>
+	
+	<footer th:replace="~{fragmentos/footer::footer}"></footer>
+	
+	<th:block th:replace=~{fragmentos/jsfinal::javascriptfinal}></th:block>
+</body>
+</html>

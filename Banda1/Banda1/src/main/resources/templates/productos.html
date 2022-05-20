@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="es">
+	<head th:replace="~{fragmentos/head::head}">
+       
+</head>
+<style>
+	table{
+            width: 85%;
+            margin: 0 auto;
+            border: 2px lightblue solid;
+            border-collapse: collapse;
+            padding: 5px;
+            background-color: rgb(243, 251, 253);
+        }
+        td{
+            border: 2px lightblue solid;
+            padding: 5px;
+            font-family: Arial, Helvetica, sans-serif;
+        }
+        th{
+            background-color: lightblue;
+            font-family: Arial, Helvetica, sans-serif;
+            font-style: oblique;
+        }
+</style>
+<body>
+
+	<nav th:replace="~{fragmentos/menu::menu}"></nav>
+	<div id="menu">
+		 <a class="btn btn-primary" th:href="@{/nuevoProducto}">Producto Nuevo</a>
+</div>
+
+<form id="buscar" class="d-flex" method="get" th:action = "@{/buscar}">
+	<input class="dropdown-item" type ="text" placeholder = "Nombre del Producto"
+		name = "nombre" id= "nombre" th:value="${param.nombre}">
+	<input type="submit" value="Enviar">
+</form>
+	
+
+	<div class="container-fluid">
+		<div class="row">
+		<div class="col-sm-3 mb-3" th:each="productos : ${lista}">
+  		
+  		<div class="card mb-3 col-item h-100">
+    		<img class="img-responsive h-100" th:src="${productos.img}" alt="Card image cap">
+    		<div class="card-body text-center">
+      			<h5 class="card-title"th:text="${productos.nombre}"></h5>
+      			<p class="card-text" th:text="${productos.cantidad}"></p>
+      			<p class="card-text" th:text="${#numbers.formatCurrency(productos.precio)}"></p>
+      			<a href="#" class="btn btn-primary" th:href="@{/editarProducto/{id}(id=${productos.id})}">Editar</a>
+   		  		<a href="#" class="btn btn-primary"th:href="@{/borrarProducto/{id}(id=${productos.id})}">Borrar</a>
+    		</div>	
+  		</div>
+  		
+		</div>
+	</div>
+	</div>	
+	
+	<footer th:replace="~{fragmentos/footer::footer}"></footer>
+	
+	<th:block th:replace=~{fragmentos/jsfinal::javascriptfinal}></th:block>
+</body>
+</html>
