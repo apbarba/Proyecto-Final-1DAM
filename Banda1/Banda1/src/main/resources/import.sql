@@ -1,9 +1,9 @@
 
-INSERT INTO eventos (id,lugar,fecha,asunto,organizador) VALUES (1,'Sanlúcar de Barrameda','2022-08-28','Salida Procesional por el 75 Aniversario de la hermandad', 'Hermandad de  la Burriquita');
-INSERT INTO eventos (id,lugar,fecha,asunto,organizador) VALUES (2,'Sanlúcar de Barrameda', '2022-09-17', 'Salida Procesional por el 75 Aniversario de la hermandad', 'Hermandad del Huerto');
-INSERT INTO eventos (id,lugar,fecha,asunto,organizador) VALUES (3,'Cádiz', '2022-10-07', 'Abrir el cortejo en la salida Procesional del Rosario Coronada', 'Hermandad del Rosario Coronada');
-INSERT INTO eventos (id,lugar,fecha,asunto,organizador) VALUES (4,'Rota', '2022-10-16', 'Concierto', 'Hermandad del Santo Entierro');
-INSERT INTO eventos (id,lugar,fecha,asunto,organizador) VALUES (5,'Cádiz', '2022-12-25', 'Concierto de Navidad', 'BCT Rosario de Cádiz');
+INSERT INTO eventos (id,lugar,fecha,asunto,organizador) VALUES (NEXTVAL('hibernate_sequence'),'Sanlúcar de Barrameda','2022-08-28','Salida Procesional por el 75 Aniversario de la hermandad', 'Hermandad de  la Burriquita');
+INSERT INTO eventos (id,lugar,fecha,asunto,organizador) VALUES (NEXTVAL('hibernate_sequence'),'Sanlúcar de Barrameda', '2022-09-17', 'Salida Procesional por el 75 Aniversario de la hermandad', 'Hermandad del Huerto');
+INSERT INTO eventos (id,lugar,fecha,asunto,organizador) VALUES (NEXTVAL('hibernate_sequence'),'Cádiz', '2022-10-07', 'Abrir el cortejo en la salida Procesional del Rosario Coronada', 'Hermandad del Rosario Coronada');
+INSERT INTO eventos (id,lugar,fecha,asunto,organizador) VALUES (NEXTVAL('hibernate_sequence'),'Rota', '2022-10-16', 'Concierto', 'Hermandad del Santo Entierro');
+INSERT INTO eventos (id,lugar,fecha,asunto,organizador) VALUES (NEXTVAL('hibernate_sequence'),'Cádiz', '2022-12-25', 'Concierto de Navidad', 'BCT Rosario de Cádiz');
 
 
 INSERT INTO categoria (id, nombre, descripcion) VALUES (1,'Ropa','Ropa con grabados de la banda');

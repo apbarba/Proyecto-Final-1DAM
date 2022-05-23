@@ -9,6 +9,7 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.banda.model.Categoria;
@@ -17,6 +18,7 @@ import com.salesianostriana.dam.banda.servicios.CategoriaServicios;
 import com.salesianostriana.dam.banda.servicios.ProductosServicios;
 
 @Controller
+//@RequestMapping("/admin")
 public class ProductosController {
 	
 //	@GetMapping("/eventos") 
@@ -47,29 +49,29 @@ public class ProductosController {
 		return "productos";
 	}
 	
-	@GetMapping("/nuevoProducto")
+	@GetMapping("/admin/nuevoProducto")
 	public String mostrarFormulario(Model model) {
 		
 		model.addAttribute("productos", new Productos());
 		
 		model.addAttribute("categorias", categoriaServicios.findAll());
 		
-		return "formularioProductos";
+		return "/admin/formularioProductos";
 	}
 	
 	
-	@PostMapping("/productoNuevo/submit")
+	@PostMapping("/admin/productoNuevo/submit")
 	public String procesarFormulario(@ModelAttribute("productos") Productos p) {
 		
 		productosServicio.add(p);
 		
-		return "redirect:/lista";
+		return "redirect:/admin/lista";
 	}
 	
 	
 	
 	
-	@GetMapping("/editarProducto/{id}")
+	@GetMapping("/admin/editarProducto/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {		 
 		
 		Productos aEditar = productosServicio.findById(id);
@@ -80,30 +82,30 @@ public class ProductosController {
 			
 			model.addAttribute("categorias", categoriaServicios.findAll());
 			
-			return "formularioProductos";
+			return "/admin/formularioProductos";
 			
 		} else {
 			
-			return "redirect:/lista";
+			return "redirect:/admin/lista";
 		}
 		
 		
 	}
 	
-	@PostMapping("/editarProducto/submit")
+	@PostMapping("/admin/editarProducto/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("productos") Productos p) {
 		
 		productosServicio.edit(p);
 		
-		return "redirect:/lista";
+		return "redirect:/admin/lista";
 	}
 	
-	@GetMapping("/borrarProducto/{id}")
+	@GetMapping("/admin/borrarProducto/{id}")
 	public String borrar(@PathVariable("id") long id) {
 		
 		productosServicio.delete(id);
 		
-		return "redirect:/lista";
+		return "redirect:/admin/lista";
 	}
 	
 	@ModelAttribute("categorias")
