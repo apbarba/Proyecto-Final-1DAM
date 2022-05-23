@@ -49,29 +49,27 @@ public class ProductosController {
 		return "productos";
 	}
 	
-	@GetMapping("/admin/nuevoProducto")
+	@GetMapping("/nuevoProducto")
 	public String mostrarFormulario(Model model) {
 		
 		model.addAttribute("productos", new Productos());
 		
 		model.addAttribute("categorias", categoriaServicios.findAll());
 		
-		return "/admin/formularioProductos";
+		return "formularioProductos";
 	}
 	
 	
-	@PostMapping("/admin/productoNuevo/submit")
+	@PostMapping("/productoNuevo/submit")
 	public String procesarFormulario(@ModelAttribute("productos") Productos p) {
 		
 		productosServicio.add(p);
 		
-		return "redirect:/admin/lista";
+		return "redirect:/lista";
 	}
 	
 	
-	
-	
-	@GetMapping("/admin/editarProducto/{id}")
+	@GetMapping("/editarProducto/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {		 
 		
 		Productos aEditar = productosServicio.findById(id);
@@ -82,30 +80,30 @@ public class ProductosController {
 			
 			model.addAttribute("categorias", categoriaServicios.findAll());
 			
-			return "/admin/formularioProductos";
+			return "formularioProductos";
 			
 		} else {
 			
-			return "redirect:/admin/lista";
+			return "redirect:/lista";
 		}
 		
 		
 	}
 	
-	@PostMapping("/admin/editarProducto/submit")
+	@PostMapping("/editarProducto/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("productos") Productos p) {
 		
 		productosServicio.edit(p);
 		
-		return "redirect:/admin/lista";
+		return "redirect:/lista";
 	}
 	
-	@GetMapping("/admin/borrarProducto/{id}")
+	@GetMapping("/borrarProducto/{id}")
 	public String borrar(@PathVariable("id") long id) {
 		
 		productosServicio.delete(id);
 		
-		return "redirect:/admin/lista";
+		return "redirect:/lista";
 	}
 	
 	@ModelAttribute("categorias")
