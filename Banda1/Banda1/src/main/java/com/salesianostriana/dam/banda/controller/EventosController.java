@@ -34,7 +34,7 @@ public class EventosController {
 		
 		model.addAttribute("lista", eventosServicio.findAll());
 		
-		return "eventos";
+		return "gestion/eventos";
 	}
 	
 	@GetMapping("/nuevo")
@@ -42,7 +42,7 @@ public class EventosController {
 		
 		model.addAttribute("eventos", new Eventos());
 		
-		return "formularioEvento";
+		return "gestion/formularioEvento";
 	}
 	
 	
@@ -68,7 +68,7 @@ public class EventosController {
 			
 			model.addAttribute("eventos", aEditar);
 			
-			return "formularioEvento";
+			return "gestion/formularioEvento";
 			
 		} else {
 	
@@ -83,7 +83,7 @@ public class EventosController {
 		
 		eventosServicio.edit(a);
 		
-		return "redirect:/";
+		return "redirect:/list";
 	}
 	
 	@GetMapping("/borrar/{id}")

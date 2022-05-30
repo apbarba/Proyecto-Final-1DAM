@@ -33,14 +33,14 @@ public class UsuarioRepository {
 					.username("admin")
 					.password("admin")
 					.role("ADMIN")
-					.nombre("Luis Miguel")
+					.nombre("Ana")
 					.build()
 				,
 				Usuario.builder()
 				.username("user")
 				.password("1234")
 				.role("USER")
-				.nombre("Ángel")
+				.nombre("Ana")
 				.build()
 				
 				);
