@@ -57,7 +57,7 @@ public class EventosController {
 	
 	
 	
-	@PostMapping("/editar/{id}")
+	@GetMapping("/editar/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {
 		
 		 
@@ -78,7 +78,7 @@ public class EventosController {
 		
 	}
 	
-	@GetMapping("/editar/submit")
+	@PostMapping("/editar/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("eventos") Eventos a) {
 		
 		eventosServicio.edit(a);
