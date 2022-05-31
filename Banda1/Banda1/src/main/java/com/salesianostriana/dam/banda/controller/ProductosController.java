@@ -65,7 +65,7 @@ public class ProductosController {
 		
 		productosServicio.add(p);
 		
-		return "redirect:/lista";
+		return "redirect:/lista/producto";
 	}
 	
 	
@@ -84,7 +84,7 @@ public class ProductosController {
 			
 		} else {
 			
-			return "redirect:/lista";
+			return "redirect:/lista/producto";
 		}
 		
 		
@@ -95,7 +95,7 @@ public class ProductosController {
 		
 		productosServicio.edit(p);
 		
-		return "redirect:/lista";
+		return "redirect:/lista/producto";
 	}
 	
 	@GetMapping("/borrarProducto/{id}")
@@ -103,11 +103,14 @@ public class ProductosController {
 		
 		productosServicio.delete(id);
 		
-		return "redirect:/lista";
+		return "redirect:/lista/producto";
 	}
 	
 	@GetMapping("/lista/producto")
-	public String mostrarProductosAdmin () {
+	public String mostrarProductosAdmin (Model model) {
+		
+		model.addAttribute("lista", productosServicio.findAll());
+		
 		return "productosAdmin";
 	}
 	

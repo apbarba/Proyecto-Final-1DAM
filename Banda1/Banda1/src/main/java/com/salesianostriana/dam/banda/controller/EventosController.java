@@ -51,7 +51,7 @@ public class EventosController {
 		
 		eventosServicio.add(e);
 		
-		return "redirect:/list";
+		return "redirect:/lista/eventos";
 	}
 	
 	
@@ -72,18 +72,18 @@ public class EventosController {
 			
 		} else {
 	
-			return "redirect:/list";
+			return "redirect:/lista/eventos";
 		}
 		
 		
 	}
 	
-	@PostMapping("/editar/submit")
+	@GetMapping("/editar/submit")
 	public String procesarFormularioEdicion(@ModelAttribute("eventos") Eventos a) {
 		
 		eventosServicio.edit(a);
 		
-		return "redirect:/list";
+		return "redirect:/lista/eventos";
 	}
 	
 	@GetMapping("/borrar/{id}")
@@ -91,12 +91,13 @@ public class EventosController {
 		
 		eventosServicio.delete(id);
 		
-		return "redirect:/list";
+		return "redirect:/lista/eventos";
 	}
 	
 	
 	@GetMapping("/lista/eventos")
 	public String mostrarEventosAdmin (Model model) {
+		
 		model.addAttribute("lista", eventosServicio.findAll());
 
 		return "eventosAdmin";

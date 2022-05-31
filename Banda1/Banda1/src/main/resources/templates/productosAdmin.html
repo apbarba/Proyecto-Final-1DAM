@@ -35,15 +35,12 @@
 					<tbody>
 
 						<tr th:each="productos: ${lista}">
-							<td><img class="img-responsive" th:src="${not (#strings.isEmpty(productos.img}"
-									alt="imagen_producto">Imagen</td>
+							<td><img class="img-responsive h-30" th:src="${productos.img}" alt="imagen_producto">Imagen</td>									
 							<td th:text="${productos.nombre}">Nombre</td>
 							<td th:text="${productos.cantidad}">Cantidad</td>
 							<td th:text="${#numbers.formatCurrency(productos.precio)}">Precio</td>
-							<td><a href="#" class="btn btn-primary"
-									th:href="@{/editarProducto/{id}(id=${productos.id})}">Editar</a></td>
-							<td><a href="#" class="btn btn-primary"
-									th:href="@{/borrarProducto/{id}(id=${productos.id})}">Borrar</a></td>
+							<td><a href="#" class="btn btn-primary" th:href="@{/editarProducto/{id}(id=${productos.id})}">Editar</a></td>									
+							<td><a href="#" class="btn btn-primary" th:href="@{/borrarProducto/{id}(id=${productos.id})}">Borrar</a></td>
 						</tr>
 
 					</tbody>

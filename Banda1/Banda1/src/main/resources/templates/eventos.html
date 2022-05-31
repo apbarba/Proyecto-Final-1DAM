@@ -26,9 +26,6 @@
 <body>
 
 	<nav th:replace="~{fragmentos/menu::menu}"></nav>
-	<div id="menu">
-		 <a class="btn btn-primary" th:href="@{/nuevo}">Evento Nuevo</a>
-</div>
 	
 	<table class="table table-striped">
 		
@@ -48,12 +45,6 @@
 			<td th:text="${eventos.lugar}">Lugar</td>
 			<td th:text="${eventos.asunto}">Asunto</td>
 			<td th:text="${eventos.organizador}">Organizador</td>
-			
-				<td>
-				<a href="#" th:href="@{/editar/{id}(id=${eventos.id})}">Editar</a> | 
-				<a href="#" th:href="@{/borrar/{id}(id=${eventos.id})}">Borrar</a>
-			</td>
-		
 
 		</tbody>
 		
