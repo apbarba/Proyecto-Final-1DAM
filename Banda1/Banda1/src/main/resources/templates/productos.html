@@ -26,9 +26,6 @@
 <body>
 
 	<nav th:replace="~{fragmentos/menu::menu}"></nav>
-	<div id="menu">
-		 <a class="btn btn-primary" th:href="@{/nuevoProducto}">Producto Nuevo</a>
-</div>
 
 <form id="buscar" class="d-flex" method="get" th:action = "@{/buscar}">
 	<input class="dropdown-item" type ="text" placeholder = "Nombre del Producto"
@@ -47,8 +44,6 @@
       			<h5 class="card-title"th:text="${productos.nombre}"></h5>
       			<p class="card-text" th:text="${productos.cantidad}"></p>
       			<p class="card-text" th:text="${#numbers.formatCurrency(productos.precio)}"></p>
-      			<a href="#" class="btn btn-primary" th:href="@{/editarProducto/{id}(id=${productos.id})}">Editar</a>
-   		  		<a href="#" class="btn btn-primary"th:href="@{/borrarProducto/{id}(id=${productos.id})}">Borrar</a>
     		</div>	
   		</div>
   		

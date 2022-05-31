@@ -38,7 +38,7 @@ public class ProductosController {
 		
 		model.addAttribute("lista", productosServicio.findAll());
 		
-		return "gestion/productos";
+		return "productos";
 	}
 	
 	@GetMapping("/buscar")
@@ -46,7 +46,7 @@ public class ProductosController {
 		
 		model.addAttribute("lista", productosServicio.buscarPorCategoriaONombre(nombre));
 		
-		return "gestion/productos";
+		return "productos";
 	}
 	
 	@GetMapping("/nuevoProducto")
@@ -56,7 +56,7 @@ public class ProductosController {
 		
 		model.addAttribute("categorias", categoriaServicios.findAll());
 		
-		return "gestion/formularioProductos";
+		return "formularioProductos";
 	}
 	
 	
@@ -80,7 +80,7 @@ public class ProductosController {
 			
 			model.addAttribute("categorias", categoriaServicios.findAll());
 			
-			return "gestion/formularioProductos";
+			return "formularioProductos";
 			
 		} else {
 			
@@ -106,11 +106,17 @@ public class ProductosController {
 		return "redirect:/lista";
 	}
 	
+	@GetMapping("/lista/producto")
+	public String mostrarProductosAdmin () {
+		return "productosAdmin";
+	}
+	
 	@ModelAttribute("categorias")
 	public List<Categoria> categorias() {
 		
 		return categoriaServicios.findAll();
 	}
+	
 	
 	
 	

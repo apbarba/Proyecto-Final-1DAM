@@ -17,52 +17,48 @@ import com.salesianostriana.dam.banda.repository.UsuarioRepository;
 @EnableWebSecurity
 public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
-    @Autowired
-    private UsuarioRepository usuarios;
+	@Autowired
+	private UsuarioRepository usuarios;
 
-    
-    @Override
-    protected void configure(AuthenticationManagerBuilder auth) throws Exception {
-        auth.userDetailsService(userDetailsService());
-    }
+	@Override
+	protected void configure(AuthenticationManagerBuilder auth) throws Exception {
+		auth.userDetailsService(userDetailsService());
+	}
 
-    @Override
-    protected void configure(HttpSecurity http) throws Exception {
-        http
-                .csrf().disable()
-                .authorizeRequests()
-                .antMatchers("/private/**")
-                .hasAnyRole("USER", "ADMIN")
-                .antMatchers("/admin/**", "/gestion/**")
-                .hasRole("ADMIN")
-                .anyRequest().permitAll()
-                .and().exceptionHandling().accessDeniedPage("/error")
-                .and().formLogin().loginPage("/").loginProcessingUrl("/login")
-                		.defaultSuccessUrl("/private")
-                		.failureUrl("/login-error").permitAll()
-                .and().logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll();
+	@Override
+	protected void configure(HttpSecurity http) throws Exception {
+		http
 
-    }
-    
-    
-    @Bean
-    @Override
-    public UserDetailsService userDetailsService() {
-    	
-    	InMemoryUserDetailsManager userDetailsManager = new InMemoryUserDetailsManager();
-    	
-    	usuarios.getUsuarios()
-    			.stream()
-    			.map(u -> {
-    				return User
-    						.withUsername(u.getUsername())
-    						.password("{noop}" + u.getPassword())
-    						.roles(u.getRole())
-    						.build();
-    			})
-    			.forEach(userDetailsManager::createUser);
-    	
-    	return userDetailsManager;
-    }
+				.authorizeRequests().antMatchers("/private/**").hasAnyRole("USER", "ADMIN")
+				.antMatchers("/editarProducto/**").hasRole("ADMIN")
+//				 .antMatchers("/list/**")
+//	                .hasAnyRole("ADMIN")
+				.antMatchers("/editar").hasRole("ADMIN")
+				.antMatchers("/nuevoProducto").hasRole("ADMIN")
+				.antMatchers("/borrarProducto").hasRole("ADMIN")
+				.antMatchers("/lista/producto/**").hasRole("ADMIN")
+				.antMatchers("/nuevo").hasRole("ADMIN")
+				.antMatchers("/borrar").hasRole("ADMIN")
+				.anyRequest().permitAll().and()
+				.exceptionHandling().accessDeniedPage("/error").and().formLogin().and().logout().logoutSuccessUrl("/");
 
+		http.csrf().disable();
+		http.headers().frameOptions().disable();
+
+	}
+
+	@Bean
+	@Override
+	public UserDetailsService userDetailsService() {
+
+		InMemoryUserDetailsManager userDetailsManager = new InMemoryUserDetailsManager();
+
+		usuarios.getUsuarios().stream().map(u -> {
+			return User.withUsername(u.getUsername()).password("{noop}" + u.getPassword()).roles(u.getRole()).build();
+
+		}).forEach(userDetailsManager::createUser);
+
+		return userDetailsManager;
+
+	}
 }

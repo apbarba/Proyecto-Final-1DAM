@@ -34,7 +34,7 @@ public class EventosController {
 		
 		model.addAttribute("lista", eventosServicio.findAll());
 		
-		return "gestion/eventos";
+		return "eventos";
 	}
 	
 	@GetMapping("/nuevo")
@@ -42,7 +42,7 @@ public class EventosController {
 		
 		model.addAttribute("eventos", new Eventos());
 		
-		return "gestion/formularioEvento";
+		return "formularioEvento";
 	}
 	
 	
@@ -57,7 +57,7 @@ public class EventosController {
 	
 	
 	
-	@GetMapping("/editar/{id}")
+	@PostMapping("/editar/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {
 		
 		 
@@ -68,7 +68,7 @@ public class EventosController {
 			
 			model.addAttribute("eventos", aEditar);
 			
-			return "gestion/formularioEvento";
+			return "formularioEvento";
 			
 		} else {
 	
@@ -92,5 +92,13 @@ public class EventosController {
 		eventosServicio.delete(id);
 		
 		return "redirect:/list";
+	}
+	
+	
+	@GetMapping("/lista/eventos")
+	public String mostrarEventosAdmin (Model model) {
+		model.addAttribute("lista", eventosServicio.findAll());
+
+		return "eventosAdmin";
 	}
 }
