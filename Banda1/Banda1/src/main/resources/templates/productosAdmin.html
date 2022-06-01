@@ -11,6 +11,12 @@
 
 </head>
 
+<style>
+	img{
+		width: 60px;
+	}
+</style>
+
 <body>
 
 	<nav th:replace="~{fragmentos/menu::menu}"></nav>
@@ -35,7 +41,7 @@
 					<tbody>
 
 						<tr th:each="productos: ${lista}">
-							<td><img class="img-responsive w-48" th:src="${productos.img}" alt="imagen_producto">Imagen</td>									
+							<td><img class="img-responsive w-48" th:src="${productos.img}" alt="imagen_producto"></td>									
 							<td th:text="${productos.nombre}">Nombre</td>
 							<td th:text="${productos.cantidad}">Cantidad</td>
 							<td th:text="${#numbers.formatCurrency(productos.precio)}">Precio</td>
