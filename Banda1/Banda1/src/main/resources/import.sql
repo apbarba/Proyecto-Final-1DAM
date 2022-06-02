@@ -9,11 +9,11 @@ INSERT INTO eventos (id,lugar,fecha,asunto,organizador) VALUES (NEXTVAL('hiberna
 INSERT INTO categoria (id, nombre, descripcion) VALUES (1,'Ropa','Ropa con grabados de la banda');
 INSERT INTO categoria (id, nombre, descripcion) VALUES (2, 'Accesorios', 'Accesorios dobre la banda');
 
-INSERT INTO productos (id, nombre, cantidad, precio, categorias_id, img) VALUES (3,'Botella Rosario',100, 15.50,2, 'https://i0.wp.com/rosariodecadiz.com/wp-content/uploads/2021/04/PicsArt_05-03-08.22.07-scaled.jpg?resize=300%2C300&ssl=1');
-INSERT INTO productos (id, nombre, cantidad, precio, categorias_id, img) VALUES (4,'Pulsera',100, 1.50,2, 'https://pbs.twimg.com/media/E2QvPbfWQAMGjP-?format=jpg&name=small');
-INSERT INTO productos (id, nombre, cantidad, precio, categorias_id, img) VALUES (5,'Polo', 100, 50.00, 1, '');
-INSERT INTO productos (id, nombre, cantidad, precio, categorias_id, img) VALUES (6,'Calcetines',100, 5.00,1, 'https://pepepinreles.com/3733-home_default/banda-cornetas-y-tambores.jpg');
-INSERT INTO productos (id, nombre, cantidad, precio, categorias_id, img) VALUES (7,'Llavero',100, 25.00,1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp-gKgUDHeUDcy8leRTEeR-LeaFV5-Y-kjhg&usqp=CAU');
+INSERT INTO productos (id, nombre, cantidad, precio, categorias_id, img) VALUES (NEXTVAL('hibernate_sequence'),'Botella Rosario',100, 15.50,2, 'https://i0.wp.com/rosariodecadiz.com/wp-content/uploads/2021/04/PicsArt_05-03-08.22.07-scaled.jpg?resize=300%2C300&ssl=1');
+INSERT INTO productos (id, nombre, cantidad, precio, categorias_id, img) VALUES (NEXTVAL('hibernate_sequence'),'Pulsera',100, 1.50,2, 'https://pbs.twimg.com/media/E2QvPbfWQAMGjP-?format=jpg&name=small');
+INSERT INTO productos (id, nombre, cantidad, precio, categorias_id, img) VALUES (NEXTVAL('hibernate_sequence'),'Polo', 100, 50.00, 1, '');
+INSERT INTO productos (id, nombre, cantidad, precio, categorias_id, img) VALUES (NEXTVAL('hibernate_sequence'),'Calcetines',100, 5.00,1, 'https://pepepinreles.com/3733-home_default/banda-cornetas-y-tambores.jpg');
+INSERT INTO productos (id, nombre, cantidad, precio, categorias_id, img) VALUES (NEXTVAL('hibernate_sequence'),'Llavero',100, 25.00,1, 'https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp-gKgUDHeUDcy8leRTEeR-LeaFV5-Y-kjhg&usqp=CAU');
 
 
 

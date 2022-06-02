@@ -27,7 +27,6 @@
 						<li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
 						<li class="nav-item"><a class="nav-link" href="/list">Eventos</a></li>
 						<li class="nav-item"><a class="nav-link" href="/lista">Productos</a></li>
-						<li class="nav-item"><a class="nav-link" href="/reserva">Reserva a Rosario</a></li>
 						<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
 								sec:authorize="hasRole('ROLE_ADMIN')" href="#" id="navbarDarkDropdownMenuLink"
 								role="button" data-bs-toggle="dropdown" aria-expanded="false">Gestión</a>
@@ -35,7 +34,6 @@
 								<li><a class="dropdown-item" th:href="@{/lista/eventos}">Eventos</a></li>
 								<li><a class="dropdown-item" th:href="@{/lista/producto}">Productos</a></li>
 								<li><a class="dropdown-item" href="#">Categorias</a></li>
-								<li><a class="dropdown-item" th:href="@{/lista/reservas}">Reservas</a></li>
 							</ul>
 						</li>
 
