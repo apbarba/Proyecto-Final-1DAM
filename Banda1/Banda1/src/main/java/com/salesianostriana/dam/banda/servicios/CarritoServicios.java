@@ -60,5 +60,6 @@ public class CarritoServicios {
 		}
 	}
 	
+	//Me falta la configuración de stocks con un if 
 	
 }
