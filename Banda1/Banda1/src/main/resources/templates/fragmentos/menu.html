@@ -27,6 +27,7 @@
 						<li class="nav-item"><a class="nav-link" href="/">Inicio</a></li>
 						<li class="nav-item"><a class="nav-link" href="/list">Eventos</a></li>
 						<li class="nav-item"><a class="nav-link" href="/lista">Productos</a></li>
+						<li class="nav-item"><a class="nav-link" sec:authorize="hasRole('ROLE_USER')" href="#">Carrito</a></li>
 						<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
 								sec:authorize="hasRole('ROLE_ADMIN')" href="#" id="navbarDarkDropdownMenuLink"
 								role="button" data-bs-toggle="dropdown" aria-expanded="false">Gestión</a>
