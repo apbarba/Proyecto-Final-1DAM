@@ -4,10 +4,10 @@ Proyecto Final del curso, esta vez se tratará de la correción de Junio.
 
 Mi proyecto trata sobre la gestión de una banda, en la que tendrá dos usuarios:
 
-USERNAME    PASSWORD
----------------------
-user        user
-admin       admin
+USERNAME            PASSWORD
+-----------------------------
+user                user
+admin               admin
 
 
 Para ver "La Banda" se deberá de iniciar en el navegador la siguiente ruta : localhost:9000
