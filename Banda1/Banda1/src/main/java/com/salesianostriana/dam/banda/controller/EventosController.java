@@ -102,4 +102,17 @@ public class EventosController {
 
 		return "eventosAdmin";
 	}
+	
+	
+	@GetMapping ({"/","/inicio"})
+	public String mostrarInicio () {
+		return "index";
+	}
+	
+	@GetMapping ("/login")
+		public String mostrarLogin () {
+			return "login";
+		}
+	
+	
 }

@@ -27,23 +27,26 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
 
 	@Override
 	protected void configure(HttpSecurity http) throws Exception {
-		http
-
-				.authorizeRequests().antMatchers("/private/**").hasAnyRole("USER", "ADMIN")
-				.antMatchers("/editarProducto/**").hasRole("ADMIN")
-//				 .antMatchers("/list/**")
-//	                .hasAnyRole("ADMIN")
-				.antMatchers("/editar").hasRole("ADMIN")
-				.antMatchers("/nuevoProducto").hasRole("ADMIN")
-				.antMatchers("/borrarProducto").hasRole("ADMIN")
-				.antMatchers("/lista/producto/**").hasRole("ADMIN")
-				.antMatchers("/nuevo").hasRole("ADMIN")
-				.antMatchers("/borrar").hasRole("ADMIN")
-				.anyRequest().permitAll().and()
-				.exceptionHandling().accessDeniedPage("/error").and().formLogin().and().logout().logoutSuccessUrl("/");
-
-		http.csrf().disable();
-		http.headers().frameOptions().disable();
+		
+        http
+        .csrf().disable()
+        .authorizeRequests()
+        .antMatchers("/private/**").hasAnyRole("USER", "ADMIN")
+    	.antMatchers("/editarProducto/**").hasRole("ADMIN")
+//		 .antMatchers("/list/**")
+//           .hasAnyRole("ADMIN")
+		.antMatchers("/editar").hasRole("ADMIN")
+		.antMatchers("/nuevoProducto").hasRole("ADMIN")
+		.antMatchers("/borrarProducto").hasRole("ADMIN")
+		.antMatchers("/lista/producto/**").hasRole("ADMIN")
+		.antMatchers("/nuevo").hasRole("ADMIN")
+		.antMatchers("/borrar").hasRole("ADMIN")
+        .anyRequest().permitAll()
+        .and().exceptionHandling().accessDeniedPage("/error")
+        .and().formLogin().loginPage("/").loginProcessingUrl("/login")
+        		.defaultSuccessUrl("/inicio")
+        		.failureUrl("/login-error").permitAll()
+        .and().logout().logoutUrl("/logout").logoutSuccessUrl("/").permitAll();
 
 	}
 
