@@ -15,3 +15,8 @@ admin(usuario) - admin (contraseña)
 Para ver "La Banda" se deberá de iniciar en el navegador la siguiente ruta : localhost:9000
 
 Cada usuario tendrá un rol diferente, ya que si entramos como admin, dispondremos de todas las funcionalidades que la página contendrá, mientras que si entramos como usuario, solamente se podrá observar los eventos de la banda y los productos, a lo que estos se podrán añadir en un carrito como la lista de los deseos.
+
+
+
+
+elivar largo
