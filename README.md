@@ -20,3 +20,5 @@ Cada usuario tendrá un rol diferente, ya que si entramos como admin, dispondrem
 
 
 elivar largo
+
+DUDAS: La seguridad en la barra de búsqueda, ya que un propio usuario a través de la barra puede entrar en la gestió de admin
