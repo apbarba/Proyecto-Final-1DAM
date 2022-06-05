@@ -1,5 +1,6 @@
 package com.salesianostriana.dam.banda.servicios;
 
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -59,6 +60,11 @@ public class CarritoServicios {
 			}
 		}
 	}
+	
+	  public Map<Productos, Integer> getProductsInCart() {
+		  
+	        return Collections.unmodifiableMap(lista);
+	    }
 	
 	//Me falta la configuración de stocks con un if 
 	
