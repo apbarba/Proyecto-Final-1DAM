@@ -71,5 +71,11 @@ public class Productos {
 		this.id = id;
 	}
 	
+	public void eliminarCategoria(Categoria c) {
+		
+		c.getProductos().remove(this);
+		
+		categorias = null;
+	}
 
 }

@@ -7,9 +7,10 @@ import org.springframework.stereotype.Service;
 
 import com.salesianostriana.dam.banda.model.Productos;
 import com.salesianostriana.dam.banda.repository.ProductosRepository;
+import com.salesianostriana.dam.banda.servicios.base.CarritoBaseII;
 
 @Service 
-public class ProductosServicios {
+public class ProductosServicios extends CarritoBaseII<Productos, Long, ProductosRepository>{
 
 	@Autowired
 	private ProductosRepository productosRepository;	

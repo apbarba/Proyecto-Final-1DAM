@@ -11,6 +11,8 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.banda.model.Categoria;
+import com.salesianostriana.dam.banda.model.Productos;
+import com.salesianostriana.dam.banda.repository.CategoriaRepository;
 import com.salesianostriana.dam.banda.servicios.CategoriaServicios;
 import com.salesianostriana.dam.banda.servicios.ProductosServicios;
 
@@ -22,6 +24,9 @@ public class CategoriaController {
 	
 	@Autowired
 	private ProductosServicios productosServicios;
+	
+	@Autowired
+	private CategoriaRepository categoriaRepsository;
 	
 	@GetMapping("/categoria")
 	public String index(Model model) {
@@ -64,26 +69,25 @@ public class CategoriaController {
 		
 	}
 	
-//	@GetMapping("/borrar/{id}")
-//	public String borrarCategoria(@PathVariable("id") Long id, Model model) {
-//		
-//		Optional<Categoria> categoria = categoriaServicios.findById(id);
-//		
-//		if (categoria != null) {
-//			
-//			if (productosServicios.numeroProductosCategoria(categoria) == 0) {
-//				
-//				categoriaServicios.delete(categoria);			
-//				
-//			} else {
-//				
-//				return "redirect:/admin/categoria/?error=true";
-//			}
-//			
-//		} 
-//
-//		return "redirect:/admin/categoria/";
-//		
-//		
-//	}
+	@GetMapping("/borrarCategoria/{id}")
+	public String borrarCategoria(@PathVariable("id") Long id, Model model) {
+		
+		Optional<Categoria> categoria = categoriaServicios.findById(id);
+		
+		if (categoria.isPresent()) {
+			
+			for(Productos p : categoria.get().getProductos()) {
+				
+				p.setCategorias(null);
+				productosServicios.save(p);
+			}
+			
+			categoriaServicios.deleteById(id);
+				
+		} 
+
+		return "redirect:/admin/categoria";
+		
+		
+	}
 }
