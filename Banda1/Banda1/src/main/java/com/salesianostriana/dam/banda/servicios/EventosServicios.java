@@ -45,21 +45,21 @@ public class EventosServicios {
 	}
 
 	/**
-	 * No se si funciona, ya que a mi portatile sale error todos los gets y setters de los atributos, mientras
-	 * que en las clases todo me funciona bien, sin problema alguno.s
+	 * No se si funciona, ya que a mi portatile sale error todos los gets y setters
+	 * de los atributos, mientras que en las clases todo me funciona bien, sin
+	 * problema alguno.s
 	 */
-//	public boolean eventoFecha(LocalDate fecha) {
-//		
-//		boolean colapsarFechaEventos = false;
-//		
-//		for (Eventos eventos : eventosRepository.findAll()) {
-//			
-//			if (eventos.getFecha().equals(fecha)) {
-//				
-//				return true;
-//			}
-//		}
-//		return false;
-//	}
+	public boolean comprobarFechas(LocalDate fecha) {
+		boolean colapsarFechaEventos = false;
+		
+		for (Eventos eventos : eventosRepository.findAll()) {
+			
+			if (eventos.getFecha().equals(fecha)) {
+				
+				colapsarFechaEventos = true;
+			}
+		}
+		return colapsarFechaEventos;
+	}
 
 }

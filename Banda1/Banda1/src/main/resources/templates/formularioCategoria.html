@@ -9,3 +9,34 @@
         <link rel='stylesheet' type='text/css' media='screen' href='prinipal.css'>
         
   </head>
+  
+  <body>
+  
+    <nav th:replace="~{fragmentos/menu::menu}"></nav>
+  
+  	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-2 col-md-8">
+				<form method="post" action="#" th:action="@{/categoria/nueva/submit}" th:object="${categoria}">
+				
+			<input th:if="${categoria.id != 0}" type="hidden" name="id" th:field="*{id}" />
+					
+					<div class="form-group">
+						<label for="nombre">Nombre</label> 
+						<input type="text" class="form-control" id="nombre" placeholder="Nombre" required="required" th:field="*{nombre}">
+					</div>
+				
+					<div class="form-group">
+						<label for="descipcion">Descripción</label> 
+						<input type="text" class="form-control" id="descripcion" placeholder="descripcion" th:field="*{descripcion}">
+					</div>
+
+					<button type="submit" class="btn btn-primary btn-default">Enviar</button>
+				</form>
+			</div>
+		</div>
+	</div>
+  
+  
+  </body>
+</html>
