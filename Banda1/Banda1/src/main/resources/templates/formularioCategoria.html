@@ -17,7 +17,7 @@
   	<div class="container">
 		<div class="row">
 			<div class="col-md-offset-2 col-md-8">
-				<form method="post" action="#" th:action="@{/categoria/nueva/submit}" th:object="${categoria}">
+				<form method="post" action="#" th:action="@{/categoriaNueva/submit}" th:object="${categoria}">
 				
 			<input th:if="${categoria.id != 0}" type="hidden" name="id" th:field="*{id}" />
 					

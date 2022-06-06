@@ -17,52 +17,52 @@ import com.salesianostriana.dam.banda.servicios.ProductosServicios;
 @Controller
 public class CategoriaController {
 
-//	@Autowired
-//	private CategoriaServicios categoriaServicios;
-//	
-//	@Autowired
-//	private ProductosServicios productosServicios;
-//	
-//	@GetMapping("/categoria")
-//	public String index(Model model) {
-//		
-//		model.addAttribute("categorias", categoriaServicios.findAll());
-//		return "/categoria";
-//	}
-//	
-//	@GetMapping("/categoriaNueva")
-//	public String nuevaCategoria(Model model) {
-//		
-//		model.addAttribute("categoria", new Categoria());
-//		
-//		return "/formularioCategoria";
-//	}
-//	
-//	@PostMapping("/categoriaNueva/submit")
-//	public String submitNuevaCategoria(@ModelAttribute("categoria") Categoria categoria, Model model) {
-//		
-//		categoriaServicios.save(categoria);
-//		
-//		return "redirect:/categoria";
-//	}
-//	
-//	@GetMapping("/categoriaEditar/{id}")
-//	public String editarCategoria(@PathVariable("id") Long id, Model model) {
-//		
-//		Optional<Categoria> categoria = categoriaServicios.findById(id);
-//		
-//		if (categoria != null) {
-//			
-//			model.addAttribute("categoria", categoria);
-//			
-//			return "/formularioCategoria";
-//			
-//		} else {
-//			
-//			return "redirect:/categoria";
-//		}
-//		
-//	}
+	@Autowired
+	private CategoriaServicios categoriaServicios;
+	
+	@Autowired
+	private ProductosServicios productosServicios;
+	
+	@GetMapping("/categoria")
+	public String index(Model model) {
+		
+		model.addAttribute("lista", categoriaServicios.findAll());
+		return "/categoria";
+	}
+	
+	@GetMapping("/categoriaNueva")
+	public String nuevaCategoria(Model model) {
+		
+		model.addAttribute("categoria", new Categoria());
+		
+		return "/formularioCategoria";
+	}
+	
+	@PostMapping("/categoriaNueva/submit")
+	public String submitNuevaCategoria(@ModelAttribute("categoria") Categoria categoria, Model model) {
+		
+		categoriaServicios.save(categoria);
+		
+		return "redirect:/categoria";
+	}
+	
+	@GetMapping("/categoriaEditar/{id}")
+	public String editarCategoria(@PathVariable("id") Long id, Model model) {
+		
+		Optional<Categoria> categoria = categoriaServicios.findById(id);
+		
+		if (categoria != null) {
+			
+			model.addAttribute("categoria", categoria);
+			
+			return "/formularioCategoria";
+			
+		} else {
+			
+			return "redirect:/categoria";
+		}
+		
+	}
 	
 //	@GetMapping("/borrar/{id}")
 //	public String borrarCategoria(@PathVariable("id") Long id, Model model) {
