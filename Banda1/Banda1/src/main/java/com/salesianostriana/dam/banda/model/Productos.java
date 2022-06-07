@@ -32,6 +32,7 @@ public class Productos {
 	private double precio;
 	@Column(length=1000)
 	private String img;
+	private String enviar;
 
 	
 	@ManyToOne

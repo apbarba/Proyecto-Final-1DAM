@@ -5,6 +5,7 @@ import java.util.List;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.salesianostriana.dam.banda.model.Categoria;
 import com.salesianostriana.dam.banda.model.Productos;
 import com.salesianostriana.dam.banda.repository.ProductosRepository;
 import com.salesianostriana.dam.banda.servicios.base.CarritoBaseII;
@@ -50,32 +51,16 @@ public class ProductosServicios extends CarritoBaseII<Productos, Long, Productos
 		return productosRepository.findById(id).orElse(null);
 	}
 	
-/*	public List<Productos> buscarPorNombre(String nombre){
-		
-		return productosRepository.findByNombreContainsIgnoreCase(nombre);
-	}*/
-	
 	
 	public List<Productos> buscarPorCategoriaONombre(String nombre) {
 		
 		return productosRepository.findByNombreContainsIgnoreCaseOrCategoriasNombreContainsIgnoreCase(nombre, nombre);
 	}
 	
-//	/**
-//	 * Devolverá los productos que tengan como  categoria ropa
-//	 */
-//	public List<Productos> productosRopa(){
-//		
-//		return productosRepository.productosRopa();
-//	}
-//	
-//	/**
-//	 * Devolverá los productos que tengan como categoria accesorios
-//	 * @return
-//	 */
-//	public List<Productos> productosAccesorios(){
-//		
-//		return productosRepository.productosAccesorios();
-//	}
+	public long encontrarNumProductos(Categoria categorias) {
+		
+		return productosRepository.countByCategorias(categorias);
+		
+	}
 
 }

@@ -13,6 +13,14 @@
   <body>
   
     <nav th:replace="~{fragmentos/menu::menu}"></nav>
+    	
+    	<div class="alert alert-warning alert-dismissible text-center" id="advertencia" role="alert" th:if="${param.error}"
+				style="margin-bottom: 2em; margin-top: -2em;">
+			<button type="button" class="close" data-dismiss="alert" aria-label="Close">
+				<span aria-hidden="true">&times;</span>
+			</button>
+				<span class="text-dark">¡No se puede eliminar una categoria con productos adentro!</span>
+		</div>
   
   	<div class="container">
 		<div class="row">

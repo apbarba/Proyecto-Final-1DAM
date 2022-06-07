@@ -38,6 +38,9 @@ public class ProductosController {
 		
 		model.addAttribute("lista", productosServicio.findAll());
 		
+		String[] enviar = new String[] {"Domicilio", "Recoger"};
+		
+		model.addAttribute("enviar", enviar);
 		return "productos";
 	}
 	

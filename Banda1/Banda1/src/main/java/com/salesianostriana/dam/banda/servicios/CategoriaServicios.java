@@ -31,7 +31,8 @@ public class CategoriaServicios extends ProductosBaseImpl<Categoria, Long, Categ
 		return categoriaRepository.save(categoria);
 	}
 	
-	public Optional<Categoria> findByCategoriaId(Long id) {
+	@Override
+	public Optional<Categoria> findById(Long id) {
 		
 		return categoriaRepository.findById(id);
 	}

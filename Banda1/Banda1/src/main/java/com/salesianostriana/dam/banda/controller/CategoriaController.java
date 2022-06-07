@@ -74,19 +74,24 @@ public class CategoriaController {
 		
 		Optional<Categoria> categoria = categoriaServicios.findById(id);
 		
-		if (categoria.isPresent()) {
+		if(categoria.isPresent()) {
 			
-			for(Productos p : categoria.get().getProductos()) {
+			if(productosServicios.encontrarNumProductos(categoria.get()) == 0) {
 				
-				p.setCategorias(null);
-				productosServicios.save(p);
+				categoriaServicios.delete(id);
+				
+				return "redirect:/categoria";
+				
+			}else {
+				
+				return "redirect:/categoria/?error=true";
 			}
 			
-			categoriaServicios.deleteById(id);
-				
-		} 
-
-		return "redirect:/admin/categoria";
+		}else {
+			
+			return "redirect:/categoria";
+		}
+		
 		
 		
 	}
