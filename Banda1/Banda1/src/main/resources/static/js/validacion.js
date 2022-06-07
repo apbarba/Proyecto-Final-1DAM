@@ -1,48 +1,22 @@
-document.addEventListener("DOMContentLoaded", function(){
-	
-	document.getElementById("productos").addEventListener()
+let nombre = document.getElementById('nombre');
+let descripcion = document.getElementById('descripcion');
+let error = document.getElementById('error');
+error.style.color = "red";
 
-});
+function enviarFormulario(){
 
-function validarForumulario(formularioEventos){
-	
-	forumularioEvento.preventDefault();
-	
-	var fecha = document.getElementById('fecha').value;
-	
-	if(fecha.length == 0){
-		
-		alert('Debes de introducir una fecha');
-		
-		return;
-	}
-	
-	var lugar = document.getElementById('lugar').value;
-	
-	if(lugar.length == null){
-		
-		alert('Debes de introducir un lugar');
-		
-		return;
-	}
-	
-	var asunto = document.getElementById('asunto').value;
-	
-	if(asunto.length == null){
-		
-		alert('Debes de introducir el asunto').value;
-		
-		return;
-	}
-	
-	var organizador = document.getElementById('organizador').value;
-	
-	if(organizador.length == null){
-		
-		alert('Debes de introducir al organizador').value;
-		
-		return;
-	}
-	
-	this.submit();
+    let mensajeError = [];
+
+	if(nombre.value === null || nombre.value === ''){
+
+        mensajeError.push('Por favor ingrese el nombre de la categoria');
+    }
+	if(descripcion.value === null || descripcion.value === ''){
+
+        mensajeError.push('Por favor ingrese una pequeña descripción');
+    }
+
+	error.innerHTML = mensajeError.join(', ');
+
+
 }
