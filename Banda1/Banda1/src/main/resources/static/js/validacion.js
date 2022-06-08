@@ -1,22 +1,60 @@
-let nombre = document.getElementById('nombre');
-let descripcion = document.getElementById('descripcion');
-let error = document.getElementById('error');
-error.style.color = "red";
+let nombre = document.getElementById('nombre').addEventListener('blur', validarNombre);
+let descripcion = document.getElementById('descripcion').addEventListener('blur', validarDescripcion);
 
 function enviarFormulario(){
 
-    let mensajeError = [];
+    let resultado = false;
 
-	if(nombre.value === null || nombre.value === ''){
+    resultado = validarNombre() && validarDescripcion();
 
-        mensajeError.push('Por favor ingrese el nombre de la categoria');
+    formulario.enviar.className = resultado?'btn btn-succes mb-2' : 'btn btn-danger mb-2'
+
+    return false;
+}
+
+function validarNombre(){
+
+    let campoNombre = formulario.nombre;
+
+    let resultado = campoNombre.value !== '';
+
+    if(resultado){
+
+        campoNombre.value = camcampoNombrepo.value.toUpperCase();
     }
-	if(descripcion.value === null || descripcion.value === ''){
 
-        mensajeError.push('Por favor ingrese una pequeña descripción');
+    cambiarApariencia(campoNombre, resultado);
+
+    return resultado;
+}
+
+function validarDescripcion(){
+
+    let campo = formulario.descripcion;
+
+    let resultado = descripcion.value !== '' && descripcion.value.length > 10;
+
+    if(resultado){
+
+        campo.value = campo.value.toUpperCase();
     }
 
-	error.innerHTML = mensajeError.join(', ');
+    cambiarApariencia(campo, resultado);
 
+    return resultado;
+}
 
+function cambiarApariencia(campo, estado){	
+	if(estado){
+		campo.classList.remove("border-danger");
+		campo.classList.add("border-success");
+		campo.parentNode.nextElementSibling.style.visibility = 'hidden';
+	}
+
+	else{
+		campo.classList.remove("border-success");
+		campo.classList.add("border-danger");
+		campo.parentNode.nextElementSibling.style.visibility = 'visible';
+	}
+		
 }

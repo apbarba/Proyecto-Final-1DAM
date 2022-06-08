@@ -32,6 +32,7 @@ public class CategoriaController {
 	public String index(Model model) {
 		
 		model.addAttribute("lista", categoriaServicios.findAll());
+		
 		return "/categoria";
 	}
 	
@@ -95,4 +96,6 @@ public class CategoriaController {
 		
 		
 	}
+	
+	
 }

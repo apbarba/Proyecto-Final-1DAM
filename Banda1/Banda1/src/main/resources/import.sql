@@ -12,7 +12,7 @@ INSERT INTO categoria (id, nombre, descripcion) VALUES (3, 'Instrumentos', 'Inst
 
 INSERT INTO productos (id, nombre, cantidad, precio, categorias_id, img) VALUES (NEXTVAL('hibernate_sequence'),'Botella Rosario',100, 15.50,2, 'https://i0.wp.com/rosariodecadiz.com/wp-content/uploads/2021/04/PicsArt_05-03-08.22.07-scaled.jpg?resize=300%2C300&ssl=1');
 INSERT INTO productos (id, nombre, cantidad, precio, categorias_id, img) VALUES (NEXTVAL('hibernate_sequence'),'Pulsera',100, 1.50,2, 'https://pbs.twimg.com/media/E2QvPbfWQAMGjP-?format=jpg&name=small');
-INSERT INTO productos (id, nombre, cantidad, precio, categorias_id, img) VALUES (NEXTVAL('hibernate_sequence'),'Polo', 100, 50.00, 1, '');
+INSERT INTO productos (id, nombre, cantidad, precio, texto, categorias_id, img) VALUES (NEXTVAL('hibernate_sequence'),'Polo', 100, 50.00,'poloo', 1, '');
 INSERT INTO productos (id, nombre, cantidad, precio, categorias_id, img) VALUES (NEXTVAL('hibernate_sequence'),'Calcetines',100, 5.00,1, 'https://pepepinreles.com/3733-home_default/banda-cornetas-y-tambores.jpg');
 INSERT INTO productos (id, nombre, cantidad, precio, categorias_id, img) VALUES (NEXTVAL('hibernate_sequence'),'Llavero',100, 25.00,1, 'https://pbs.twimg.com/media/E17VaVzXEAElsvE?format=jpg&name=large');
 INSERT INTO productos (id, nombre, cantidad, precio, categorias_id, img) VALUES (NEXTVAL('hibernate_sequence'), 'Taza Rosario', 100, 30.70,2,'https://artejimenezdiaz.es/wp-content/uploads/2021/04/patrona.jpg')
