@@ -20,7 +20,7 @@ function validarNombre(){
 
     if(resultado){
 
-        campoNombre.value = camcampoNombrepo.value.toUpperCase();
+        campoNombre.value = campoNombre.value.toUpperCase();
     }
 
     cambiarApariencia(campoNombre, resultado);
@@ -30,16 +30,16 @@ function validarNombre(){
 
 function validarDescripcion(){
 
-    let campo = formulario.descripcion;
+    let campoDescripcion = formulario.descripcion;
 
     let resultado = descripcion.value !== '' && descripcion.value.length > 10;
 
     if(resultado){
 
-        campo.value = campo.value.toUpperCase();
+        campoDescripcion.value = campoDescripcion.value.toUpperCase();
     }
 
-    cambiarApariencia(campo, resultado);
+    cambiarApariencia(campoDescripcion, resultado);
 
     return resultado;
 }
