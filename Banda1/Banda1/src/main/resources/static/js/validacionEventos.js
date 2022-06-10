@@ -1,4 +1,4 @@
-//let fecha = document.getElementById('fecha').addEventListener('blur', validarFecha);
+document.getElementById('fecha').addEventListener('blur', validarFecha);
 document.getElementById('lugar').addEventListener('blur', validarLugar);
 document.getElementById('asunto').addEventListener('blur', validarAsunto);
 document.getElementById('organizador').addEventListener('blur', validarOrganizador);
@@ -7,7 +7,8 @@ function validarFormulario(){
 
     let resultado = false;
 
-    resultado = validarLugar() &&
+    resultado = validarFecha() &&
+                validarLugar() &&
                 validarAsunto() &&
                 validarOrganizador();
 
@@ -16,7 +17,7 @@ function validarFormulario(){
     return false;
 }
 
-/*
+
 function validarFecha(){
 
     let campoFecha = formulario.fecha;
@@ -24,8 +25,15 @@ function validarFecha(){
 
     if(resultado){
 
-        let fechaDate = fecha.valueAsDate;
-        let hoy = new Date();
+        campoFecha.valueAsDate;
+        let hoy = new Date().toISOString().slice(0, 10); //Se coge el año, mes y día
+
+        resultado = campoFecha.value > hoy || (campoFecha.value > hoy && campoFecha.getMonth().value >= hoy.getMonth() && campoFecha.getDate().value >= hoy.getDate().value);
+        //Cuando se coge la fecha, decimos que sea mayor que hoy o que el mes sea igual al de hoy pero que sea ma
+
+
+
+
 
     }
 
@@ -33,7 +41,7 @@ function validarFecha(){
 
     return resultado;
 
-}*/
+}
 
 function validarLugar(){
 
@@ -95,5 +103,6 @@ function cambiarApariencia(campo, estado){
 	}
 		
 }
+
 
 

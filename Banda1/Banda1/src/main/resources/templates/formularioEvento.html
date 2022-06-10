@@ -30,17 +30,16 @@
 		<span class="text-dark">¡Ya tenemos un evento asignado para esta fecha!</span>
 	</div>
 
-	<div class="container" id="formulario">
+	<div class="container">
 
-		<form id="formulario" onsubmit="return validarFormulario();" th:action="${eventos.id != 0} ? @{/editar/submit} : @{/nuevo/submit}"
+		<form name="formulario" id="formulario" onsubmit="return validarFormulario();" th:action="${eventos.id != 0} ? @{/editar/submit} : @{/nuevo/submit}"
 			th:object="${eventos}" method="post">
 
 			<input id="color" th:if="${eventos.id != 0}" type="hidden" name="id" th:field="*{id}" />
 
 			<div class="mb-3">
 				<label class="form-label">Fecha</label>
-				<input id="fecha" type="date" name="fecha" th:field="*{fecha}" placeholder="fecha" value="2022-05-20"
-					min="2022-01-01" max="2025-12-31" />
+				<input id="fecha" type="date" name="fecha" th:field="*{fecha}" placeholder="fecha" />
 			</div>
 
 			<div class="mensajeError text-danger" id="errorFecha">Introduzca una fecha</div>
@@ -66,7 +65,7 @@
 
 			<div class="mensajeError text-danger" id="errorOrganizador">Introduzca el organizador</div>
 
-			<button type="submit" id="enviar" class="btn btn-primary mb-2">Enviar</button>
+			<button type="submit" id="enviar" class="btn btn-primary mb-2">Enviar</button>			
 		</form>
 
 	</div>
