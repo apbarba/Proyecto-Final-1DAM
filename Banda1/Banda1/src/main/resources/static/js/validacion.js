@@ -7,9 +7,9 @@ function enviarFormulario(){
 
     resultado = validarNombre() && validarDescripcion();
 
-    formulario.enviar.className = resultado?'btn btn-succes mb-2' : 'btn btn-danger mb-2'
+    formulario.enviar.className = resultado ? 'btn btn-success mb-2' : 'btn btn-danger mb-2';   
 
-    return false;
+    return resultado;
 }
 
 function validarNombre(){
@@ -18,8 +18,7 @@ function validarNombre(){
 
     let resultado = campoNombre.value !== '';
 
-    if(resultado){
-
+    if (resultado) {
         campoNombre.value = campoNombre.value.toUpperCase();
     }
 

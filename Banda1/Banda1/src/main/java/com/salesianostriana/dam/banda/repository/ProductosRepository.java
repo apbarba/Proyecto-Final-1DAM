@@ -15,6 +15,10 @@ public interface ProductosRepository extends JpaRepository<Productos, Long> {
 	
 	List<Productos> findByNombreContainsIgnoreCaseOrCategoriasNombreContainsIgnoreCase(String nombre, String nombre2);
 	
+	public long countByCategorias(Categoria categorias);
+	
+//	List<Productos> findByCategoriaId(Long id);
+	
 //	@Query("select p from productos p where p.categorias_id = 1")
 //	public List<Productos> productosRopa();
 //	
@@ -28,5 +32,4 @@ public interface ProductosRepository extends JpaRepository<Productos, Long> {
 //	@Query("select count(p) from productos p where p.categorias =?1 ")
 //	public int findNumProductosByCategoria(Optional <Categoria> categoria);
 	
-	public long countByCategorias(Categoria categorias);
 }

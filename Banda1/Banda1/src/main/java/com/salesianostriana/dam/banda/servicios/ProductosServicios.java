@@ -8,10 +8,10 @@ import org.springframework.stereotype.Service;
 import com.salesianostriana.dam.banda.model.Categoria;
 import com.salesianostriana.dam.banda.model.Productos;
 import com.salesianostriana.dam.banda.repository.ProductosRepository;
-import com.salesianostriana.dam.banda.servicios.base.CarritoBaseII;
+import com.salesianostriana.dam.banda.servicios.base.ProductosBaseImpl;
 
 @Service 
-public class ProductosServicios extends CarritoBaseII<Productos, Long, ProductosRepository>{
+public class ProductosServicios extends ProductosBaseImpl<Productos, Long, ProductosRepository>{
 
 	@Autowired
 	private ProductosRepository productosRepository;	
@@ -62,5 +62,10 @@ public class ProductosServicios extends CarritoBaseII<Productos, Long, Productos
 		return productosRepository.countByCategorias(categorias);
 		
 	}
+	
+//	public List<Productos> findByCategoria(Long id){
+//		
+//		return productosRepository.findByCategoriaId(id);
+//	}
 
 }

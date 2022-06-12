@@ -1,6 +1,8 @@
 package com.salesianostriana.dam.banda.controller;
 
+import java.util.ArrayList;
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -9,7 +11,6 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 import com.salesianostriana.dam.banda.model.Categoria;
@@ -123,33 +124,22 @@ public class ProductosController {
 		return categoriaServicios.findAll();
 	}
 	
-	
-	
-	
-	/**
-	 * Nos llevará a la página ropa en la que se mostrarán los productos
-	 * catalogados como ropa
-	 * @return
-	 */
-//	@GetMapping("/categoriaRopa")
-//	public String ropa() {
+//	@GetMapping("/productos/categoria{id}")
+//	public String productosPorCategoria(Model model, @PathVariable("id") long id) {
 //		
-//		productosServicio.productosRopa();
+//		Optional<Categoria> c = categoriaServicios.findById(id);
 //		
-//		return "ropa";
-//	}
-//	
-//	/**
-//	 * Nos llevará a la página accesorio y se mostrarán los productos
-//	 * que tengan como categoria accesorios
-//	 * @return
-//	 */
-//	@GetMapping("/categoriaAccesorios")
-//	public String accesorios(){
+//		List<Productos> productos =  new ArrayList<>();
 //		
-//		productosServicio.productosAccesorios();
+//		for(Productos producto : productosServicio.findByCategoria(id)) {
+//			
+//			productos.add(producto);
+//		}
 //		
-//		return "accesorios";
+//		model.addAttribute("productos", productos);
+//		model.addAttribute("categorias", c);
+//		
+//		return "categoria";
 //	}
 
 
