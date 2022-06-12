@@ -76,11 +76,11 @@ public class ProductosController {
 	@GetMapping("/editarProducto/{id}")
 	public String mostrarFormularioEdicion(@PathVariable("id") long id, Model model) {		 
 		
-		Productos aEditar = productosServicio.findById(id);
+		Optional<Productos> aEditar = productosServicio.findById(id);
 		
-		if (aEditar != null) {
+		if (aEditar.isPresent()) {
 			
-			model.addAttribute("productos", aEditar);
+			model.addAttribute(aEditar.get());
 			
 			model.addAttribute("categorias", categoriaServicios.findAll());
 			

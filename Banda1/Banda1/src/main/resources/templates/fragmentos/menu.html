@@ -29,9 +29,9 @@
 						<li class="nav-item"><a class="nav-link" href="/inicio">Inicio</a></li>
 						<li class="nav-item"><a class="nav-link" href="/list">Eventos</a></li>
 						<li class="nav-item"><a class="nav-link" href="/lista">Productos</a></li>
-						<li class="nav-item"><a class="nav-link" href="/carrito">Carrito</a></li>
+						<li class="nav-item"><a class="nav-link" sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_USER')" 
+							th:href="@{carrito/mostrarCarrito}">Carrito</a></li>
 						
-	
                              <!-->
                               <li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
 								sec:authorize="hasRole('ROLE_ADMIN')" href="#" id="navbarDarkDropdownMenuLink"

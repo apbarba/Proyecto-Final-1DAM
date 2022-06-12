@@ -1,6 +1,7 @@
 package com.salesianostriana.dam.banda.servicios;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -46,9 +47,9 @@ public class ProductosServicios extends ProductosBaseImpl<Productos, Long, Produ
 		return productosRepository.findAll(); 
 	}
 	
-	public Productos findById(long id) {
+	public Optional<Productos> findById(long id) {
 		
-		return productosRepository.findById(id).orElse(null);
+		return productosRepository.findById(id);
 	}
 	
 	

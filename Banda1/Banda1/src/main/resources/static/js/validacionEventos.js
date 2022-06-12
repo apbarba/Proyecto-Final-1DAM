@@ -7,12 +7,23 @@ function validarFormulario(){
 
     let resultado = false;
 
-    resultado = validarFecha() &&
-                validarLugar() &&
+    let fecha = false;
+
+    fecha = validarFecha();
+
+    resultado = validarLugar() &&
                 validarAsunto() &&
                 validarOrganizador();
 
-    formulario.enviar.className = resultado?'btn btn-succes mb-2' : 'btn btn-danger mb-2';
+    if(!resultado || !fecha){
+
+        formulario.enviar.className = 'btn btn-danger mb-2';
+    
+    }else{
+
+        formulario.enviar.className = 'btn btn-success mb-2';
+    }
+
 
     return false;
 }
@@ -30,10 +41,6 @@ function validarFecha(){
 
         resultado = campoFecha.value > hoy || (campoFecha.value > hoy && campoFecha.getMonth().value >= hoy.getMonth() && campoFecha.getDate().value >= hoy.getDate().value);
         //Cuando se coge la fecha, decimos que sea mayor que hoy o que el mes sea igual al de hoy pero que sea ma
-
-
-
-
 
     }
 
