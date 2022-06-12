@@ -31,13 +31,11 @@
 						<li class="nav-item"><a class="nav-link" href="/lista">Productos</a></li>
 						<li class="nav-item"><a class="nav-link" href="/carrito">Carrito</a></li>
 						
-					<div class="dropdown">
-
-                                <button type="button"
-                                    class="btn btn-secondary dropdown-toggle bg-light border border-dark text-muted"
-                                    data-bs-toggle="dropdown">
-                                    Categorías
-                                </button>
+	
+                             <!-->
+                              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
+								sec:authorize="hasRole('ROLE_ADMIN')" href="#" id="navbarDarkDropdownMenuLink"
+								role="button" data-bs-toggle="dropdown" aria-expanded="false">Categoria</a>
                                 <ul class="dropdown-menu bg-light text-dark">
                                     <th:block th:each="categoria : ${lista}">
                                         <a class="dropdown-item text-dark"
@@ -45,7 +43,10 @@
                                             th:text="${categoria.nombre}"></a>
                                     </th:block>
                                 </ul>
-                            </div>
+                               </li>
+                                <!--> 
+                                
+                                                      
 						<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
 								sec:authorize="hasRole('ROLE_ADMIN')" href="#" id="navbarDarkDropdownMenuLink"
 								role="button" data-bs-toggle="dropdown" aria-expanded="false">Gestión</a>
