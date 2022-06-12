@@ -30,8 +30,10 @@ public class Productos {
 	private String nombre;
 	private int cantidad;
 	private double precio;
+	
 	@Column(length=1000)
 	private String texto;
+	
 	private String img;
 	private String enviar;
 

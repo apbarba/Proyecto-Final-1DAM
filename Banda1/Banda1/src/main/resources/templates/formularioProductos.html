@@ -10,58 +10,43 @@
     
 </head>
 <style>
-	*{
-		margin:0;
-		padding:0;
-		-webkit-font-smoothing:antialiased;
-		-moz-font-smoothing:antialiased;
-		-o-font-smoothing:antialiased;
-		text-rendering:optimizeLegibility;
+
+	.mensajeError{
+		visibility: hidden;
 	}
-	
-body{
-    font-family: Arial, Helvetica, sans-serif;
-    background-color: rgb(212, 239, 255);
-    background: linear-gradient(to right, rgb(77, 77, 77), rgb(37, 37, 37) );
-}
-		
-form{
-    font-family: Arial, Helvetica, sans-serif;
-}
-		#productos{
-			background:#F9F9F9;
-			padding:25px;
-			margin:50px 0;
-			border-radius:25px;
-			text-align:center;
-		}
-	
+
 </style>
 
 <body>
 
 	<nav th:replace="~{fragmentos/menu::menu}"></nav>
 
-	<div class="container" id="formulario">
+	<div class="container">
 	
-		<form id="productos" class="mb-3" th:action="${productos.id != 0} ? @{/editarProducto/submit} : @{/productoNuevo/submit}" th:object="${productos}" method="post">
+		<form id="formulario" onsubmit="return enviarFormulario();" class="mb-3"  action="#" th:action="${productos.id != 0} ? @{/editarProducto/submit} : @{/productoNuevo/submit}" th:object="${productos}" method="post">
 			
 			<input th:if="${productos.id != 0}" type="hidden" name="id" th:field="*{id}" /> 
 			
-			<div class="mb-3">
-				<label class="form-label">Nombre Producto</label>	
-				<input type="text" name="nombre" th:field="*{nombre}" placeholder="Nombre" required /> 
+			<div class="form-group">
+				<label for="nombre" class="form-label">Nombre Producto</label>	
+				<input type="text" name="nombre" id="nombre" th:field="*{nombre}" placeholder="Nombre" /> 
 			</div>
 			
+			<div class="mensajeError text-danger" id="errorNombre">Introduzca el nombre del producto</div>
+
 			<div class="mb-3">
-				<label class="form-label">Cantidad</label>
-				<input type= "number" name="cantidad" min="1" max="100" th:field="*{cantidad}" placeholder="Cantidad" />
+				<label name="cantidad" class="form-label">Cantidad</label>
+				<input id="cantidad" type= "text" name="cantidad" th:field="*{cantidad}" placeholder="Cantidad" />
 			</div>
+
+			<div class="mensajeError text-danger" id="errorCantidad">Introduzca la cantidad del producto, no debe de ser negativo</div>
 			
 			<div class="mb-3">
-				<label class="form-label">Precio</label>
-				<input type="text" name="precio" th:field="*{precio}" placeholder="Precio" required />
+				<label name="precio" class="form-label">Precio</label>
+				<input id="precio" type="text" name="precio" th:field="*{precio}" placeholder="Precio" />
 			</div>
+
+			<div class="mensajeError text-danger" id="errorPrecio">Debes de indicar un precio válido(no se pueden incluir carácteres especiales)</div>
 			
 			<div class="mb-3">
 				<label class= "form-label">Imagen</label>
@@ -69,9 +54,9 @@ form{
 			</div>
 			
 				<div>
-				<label>Categorias</label>
+				<label name="categoria" class="form-label">Categorias</label>
 				<div class="form-check ml-3">
-					<select th:field="*{categorias}">
+					<select id="categoria" th:field="*{categorias}">
 						<option value="-1">---</option>
 						<option th:each="categoria : ${categorias}" th:value="${categoria.id}"
 							th:text="${categoria.nombre}">
@@ -81,7 +66,7 @@ form{
 				</div>
 			</div>
 			
-			<input type="submit" name="enviar" value="Enviar" />
+			<button type="submit" id="enviar" name="enviar" class="btn btn-primary mb-2">Enviar</button>
 		</form>
 		
 	</div>

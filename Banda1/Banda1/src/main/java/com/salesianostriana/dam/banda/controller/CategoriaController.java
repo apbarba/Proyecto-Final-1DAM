@@ -79,7 +79,7 @@ public class CategoriaController {
 			
 			if(productosServicios.encontrarNumProductos(categoria.get()) == 0) {
 				
-				categoriaServicios.delete(id);
+				categoriaServicios.deleteById(id);
 				
 				return "redirect:/categoria";
 				
