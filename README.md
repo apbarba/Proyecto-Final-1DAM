@@ -19,6 +19,8 @@ Cada usuario tendrá un rol diferente, ya que si entramos como admin, dispondrem
 
 
 
-elivar largo
+LÓGICA DE NEGOCIO
+__________________
+El administrador no ppodrá implentar un nuevo evento si la fecha escogida ya tiene un evento asociado a esta.
+El administrador no podrá eliminar una categoria si en esta se encuentra productos asociados, si no es así, se podrá eliminar.
 
-DUDAS: La seguridad en la barra de búsqueda, ya que un propio usuario a través de la barra puede entrar en la gestió de admin
