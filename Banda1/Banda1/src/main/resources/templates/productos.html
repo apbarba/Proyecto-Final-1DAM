@@ -54,7 +54,7 @@
       			<p class="card-text" th:text="${productos.cantidad}"></p>
       			<p class="card-text" th:text="${#numbers.formatCurrency(productos.precio)}"></p>
       			<div class="btn-group">
-      				<a><button type="button"
+      				<a th:href="@{/carrito/productoACarrito/{id}(id=${productos.id})}"><button type="button"
 									class="btn btn-sm btn-primary m-2 ">Añadir al
 									carrito</button></a>
       			</div>
