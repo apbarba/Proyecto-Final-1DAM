@@ -52,7 +52,7 @@ public class CarritoController {
 			
 			carritoServicio.anadirProducto(comprobar.get());
 
-			return "redirect: /carrito/mostrarCarrito";
+			return "redirect:/carrito/mostrarCarrito";
 
 		}else {
 			

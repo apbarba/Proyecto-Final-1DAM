@@ -52,9 +52,11 @@
     		<div class="card-body text-center">
       			<h5 class="card-title"th:text="${productos.nombre}"></h5>
       			<p class="card-text" th:text="${productos.cantidad}"></p>
+      			<p class="card-text" th:text="${productos.proveedores}"></p>
+      			<p class="card-text" th:text="${productos.envio}"></p>
       			<p class="card-text" th:text="${#numbers.formatCurrency(productos.precio)}"></p>
       			<div class="btn-group">
-      				<a th:href="@{/carrito/productoACarrito/{id}(id=${productos.id})}"><button type="button"
+      				<a href="/lista" th:href="@{/carrito/productoACarrito/{id}(id=${productos.id})}"><button type="button"
 									class="btn btn-sm btn-primary m-2 ">Añadir al
 									carrito</button></a>
       			</div>

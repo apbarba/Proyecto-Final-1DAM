@@ -30,12 +30,13 @@ public class Productos {
 	private String nombre;
 	private int cantidad;
 	private double precio;
-	
+	private String proveedores;
+	private String envio;
+
 	@Column(length=1000)
-	private String texto;
+	private String texto; //Atl de la imágenes
 	
 	private String img;
-	private String enviar;
 
 	
 	@ManyToOne

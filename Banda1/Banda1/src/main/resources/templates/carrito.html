@@ -40,7 +40,7 @@
 						<td th:text="${element.key.precio * element.value}"> </td>
 
 						<td>
-							<a th:href="@{/carrito/borrarProducto/{id}(id=${element.key.id})}">
+							<a th:href="@{/carrito/borrarProductoCarrito/{id}(id=${element.key.id})}">
 								<button type="button" class="btn btn-danger">
 									Eliminar
 								</button></a>

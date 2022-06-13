@@ -28,7 +28,6 @@ public class Eventos {
 	private String lugar; //Donde se celebrará el concierto
 	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private LocalDate fecha;
-	private String img;
 	
 	@Id
 	@GeneratedValue
