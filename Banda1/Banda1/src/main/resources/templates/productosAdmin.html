@@ -26,20 +26,20 @@
 	<nav th:replace="~{fragmentos/menu::menu}"></nav>
 
 
-	<div class="container">
-		<div class="row">
-			<div class="col-md-offset-1 col-md-10">
+	
 				<div class="pull-right">
 					<a class="btn btn-primary" th:href="@{/nuevoProducto}"><i class="bi bi-cloud-plus"></i></a>
 				</div>
 
 				<table class="table table-striped">
-					<thead>
+					<thead class="table-dark"> 
 						<tr>
 							<th>Imagen</th>
 							<th>Nombre</th>
 							<th>Cantidad</th>
 							<th>Precio</th>
+							<th>Editar</th>
+  							<th>Eliminar</th>
 						</tr>
 					</thead>
 					<tbody>
@@ -55,9 +55,6 @@
 
 					</tbody>
 				</table>
-			</div>
-		</div>
-	</div>
 
 
 </body>

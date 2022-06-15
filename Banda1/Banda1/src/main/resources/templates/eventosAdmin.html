@@ -24,24 +24,22 @@
 
 	<nav th:replace="~{fragmentos/menu::menu}"></nav>
 	
-	<div id="container">
-		<div class="row">
-			<div class="col-md-offset-4 col-md-9">
 				<div class="pull-right">
 					<a class="btn btn-primary" th:href="@{/nuevo}"><i class="bi bi-cloud-plus"></i></a>
 				</div>
 
 				<table class="table table-striped">
 
-					<thead>
-						<tr>
+					<thead class="table-dark"> 
+ 						<tr>
 							<th>Id</th>
 							<th>Fecha</th>
 							<th>Lugar</th>
 							<th>Asunto</th>
 							<th>Organizador</th>
+							<th>Gestión</th>
 						</tr>
-					</thead>
+					</thead >
 					<tbody>
 						<tr th:each="eventos : ${lista}">
 							<td th:text="${eventos.id}">1</td>
@@ -59,10 +57,6 @@
 					</tbody>
 
 				</table>
-
-			</div>
-		</div>
-	</div>
 
 	<th:block th:replace=~{fragmentos/jsfinal::javascriptfinal}></th:block>
 </body>
