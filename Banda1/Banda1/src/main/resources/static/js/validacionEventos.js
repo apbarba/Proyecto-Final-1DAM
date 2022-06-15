@@ -25,7 +25,7 @@ function validarFormulario(){
     }
 
 
-    return false;
+    return resultado;
 }
 
 
