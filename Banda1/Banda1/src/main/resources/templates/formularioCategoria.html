@@ -30,7 +30,7 @@
 		<div class="row">
 			<div class="col-md-offset-2 col-md-8">
 				
-				<form id="formulario" onsubmit="return enviarFormulario();" name="formulario" method="post" action="#" th:action="@{/categoriaNueva/submit}" th:object="${categoria}">
+				<form id="formulario" onsubmit="return enviarFormulario();" name="formulario" method="post" action="#" th:action="${categoria.id != 0} ? @{/categoriaEditar/submit} : @{/categoriaNueva/submit}" th:object="${categoria}">
 				
 					<input th:if="${categoria.id != 0}" type="hidden" name="id" th:field="*{id}" />
 					

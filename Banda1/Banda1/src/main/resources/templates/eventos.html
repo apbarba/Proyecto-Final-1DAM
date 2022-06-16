@@ -12,7 +12,6 @@
 </head>
 <style>
 	table {
-		width: 85%;
 		margin: 0 auto;
 		border: 2px lightblue solid;
 		border-collapse: collapse;
@@ -31,34 +30,49 @@
 		font-family: Arial, Helvetica, sans-serif;
 		font-style: oblique;
 	}
+	
+	.container{
+		
+		width: 900px;
+		margin: 0 auto;
+		
+	}
 </style>
 
 <body>
 
 	<nav th:replace="~{fragmentos/menu::menu}"></nav>
 
-	<table class="table table-striped">
+	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-1 col-md-10">
 
-		<thead>
-			<tr>
-				<th>Id</th>
-				<th>Fecha</th>
-				<th>Lugar</th>
-				<th>Asunto</th>
-				<th>Organizador</th>
-			</tr>
-		</thead>
-		<tbody>
-			<tr th:each="eventos : ${lista}">
-				<td th:text="${eventos.id}">1</td>
-				<td th:text="${eventos.fecha}">Fecha</td>
-				<td th:text="${eventos.lugar}">Lugar</td>
-				<td th:text="${eventos.asunto}">Asunto</td>
-				<td th:text="${eventos.organizador}">Organizador</td>
+				<table class="table table-striped">
 
-		</tbody>
+					<thead>
+						<tr>
+							<th>Id</th>
+							<th>Fecha</th>
+							<th>Lugar</th>
+							<th>Asunto</th>
+							<th>Organizador</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr th:each="eventos : ${lista}">
+							<td th:text="${eventos.id}">1</td>
+							<td th:text="${eventos.fecha}">Fecha</td>
+							<td th:text="${eventos.lugar}">Lugar</td>
+							<td th:text="${eventos.asunto}">Asunto</td>
+							<td th:text="${eventos.organizador}">Organizador</td>
+			
+					</tbody>
 
-	</table>
+				</table>
+	
+			</div>
+		</div>
+	</div>
 
 	<footer th:replace="~{fragmentos/footer::footer}"></footer>
 	

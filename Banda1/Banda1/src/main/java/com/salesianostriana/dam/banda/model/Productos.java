@@ -30,8 +30,7 @@ public class Productos {
 	private String nombre;
 	private int cantidad;
 	private double precio;
-	private String proveedores;
-	private String envio;
+	private String proveedor;
 
 	@Column(length=1000)
 	private String texto; //Atl de la imágenes

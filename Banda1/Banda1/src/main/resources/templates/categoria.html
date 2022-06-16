@@ -33,38 +33,43 @@
 		</div>
 
 
-  			<div class="pull-right">
-  				<a th:href="@{/categoriaNueva}" class="btn btn-primary"><i class="bi bi-cloud-plus"></i></a>
+		<div class="container">
+			<div class="row">
+				<div class="col-md-offset-1 col-md-10">	
+  					<div class="pull-right">
+  						<a th:href="@{/categoriaNueva}" class="btn btn-primary"><i class="bi bi-cloud-plus"></i></a>
   				
-  			</div>
+  					</div>
   			
-  			<table class="table table-striped">
-  				<thead>
-					<thead class="table-dark"> 
-  						<th>Id</th>
-  						<th>Nombre</th>
-  						<th>Descripción</th>
-  						<th>Editar</th>
-  						<th>Eliminar</th>
-  					</tr>
-  				</thead>
+		  			<table class="table table-striped">
+		  				<thead>
+							<thead class="table-dark"> 
+		  						<th>Id</th>
+		  						<th>Nombre</th>
+		  						<th>Descripción</th>
+		  						<th>Editar</th>
+		  						<th>Eliminar</th>
+		  					</tr>
+		  				</thead>
   				
-  				<tbody>
-  					<tr th:each="categoria : ${lista}">
-  						<td th:text="${categoria.id}"></td>
-  						<td th:text="${categoria.nombre}"></td>
-  						<td th:text="${categoria.descripcion}"></td>
-  						<td>
-  							<a href="#" class="btn btn-primary" th:href="@{/categoriaEditar/{id}(id=${categoria.id})}"> <i class="bi bi-pencil-square"> </i></a>
-  						</td>									
-						<td>
-							<a href="#" class="btn btn-danger" th:href="@{/borrarCategoria/{id}(id=${categoria.id})}"><i class="bi bi-trash3"></i></a>
-						</td>
-						
-  					</tr>
-  				</tbody>
-  			</table>
-
+		  				<tbody>
+		  					<tr th:each="categoria : ${lista}">
+		  						<td th:text="${categoria.id}"></td>
+		  						<td th:text="${categoria.nombre}"></td>
+		  						<td th:text="${categoria.descripcion}"></td>
+		  						<td>
+		  							<a href="#" class="btn btn-primary" th:href="@{/categoriaEditar/{id}(id=${categoria.id})}"> <i class="bi bi-pencil-square"> </i></a>
+		  						</td>									
+								<td>
+									<a href="#" class="btn btn-danger" th:href="@{/borrarCategoria/{id}(id=${categoria.id})}"><i class="bi bi-trash3"></i></a>
+								</td>
+								
+		  					</tr>
+	  				</tbody>
+	  			</table>
+			</div>
+		</div>
+	</div>
   
   
   </body>

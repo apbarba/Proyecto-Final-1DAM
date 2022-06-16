@@ -67,6 +67,12 @@ function validarCategoria(){
     let campoCategoria = formulario.categoria;
     let resultado = campoCategoria.value != '-1';
 
+    if(resultado){
+    
+        alert('Seleccione una categoria para el producto');
+
+    }
+
     cambiarApariencia(campoCategoria, resultado);
 
     return resultado;

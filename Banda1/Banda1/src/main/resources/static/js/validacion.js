@@ -1,15 +1,23 @@
-let nombre = document.getElementById('nombre').addEventListener('blur', validarNombre);
-let descripcion = document.getElementById('descripcion').addEventListener('blur', validarDescripcion);
+document.getElementById('nombre').addEventListener('blur', validarNombre);
+document.getElementById('descripcion').addEventListener('blur', validarDescripcion);
 
 function enviarFormulario(){
 
     let resultado = false;
 
-    resultado = validarNombre() && validarDescripcion();
+    let descripcion = false;
 
-    formulario.enviar.className = resultado ? 'btn btn-success mb-2' : 'btn btn-danger mb-2';   
+    descripcion = validarDescripcion();
 
-    return resultado;
+    resultado = validarNombre();
+
+    if (!resultado || !descripcion) {
+        formulario.enviar.className = 'btn btn-danger mb-2';
+        return false;
+    } else {
+        formulario.enviar.className = 'btn btn-success mb-2';
+        return true;
+    }
 }
 
 function validarNombre(){

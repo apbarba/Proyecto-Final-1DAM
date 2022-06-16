@@ -11,6 +11,7 @@
 </head>
 <style>
 
+
 	.mensajeError{
 		visibility: hidden;
 	}
@@ -21,51 +22,97 @@
 
 	<nav th:replace="~{fragmentos/menu::menu}"></nav>
 
-	<div class="container">
+	<div class="container p-t-180 p-b-100 font-robo">
 	
 		<form id="formulario" onsubmit="return enviarFormulario();" class="mb-3"  action="#" th:action="${productos.id != 0} ? @{/editarProducto/submit} : @{/productoNuevo/submit}" th:object="${productos}" method="post">
 			
 			<input th:if="${productos.id != 0}" type="hidden" name="id" th:field="*{id}" /> 
 			
-			<div class="form-group">
+			<div class="form-group my-3">
 				<label for="nombre" class="form-label">Nombre Producto</label>	
-				<input type="text" name="nombre" id="nombre" th:field="*{nombre}" placeholder="Nombre" /> 
+				<input type="text" class="form_input" name="nombre" id="nombre" th:field="*{nombre}" placeholder="Nombre" /> 
 			</div>
 			
 			<div class="mensajeError text-danger" id="errorNombre">Introduzca el nombre del producto</div>
 
-			<div class="mb-3">
+			<div class="form-group my-3">
+				<label class="col-md-3 control-label my-2" for="radios">Proveedor</label>
+				<div class="col-md-4">
+				<div class="radio">
+				  <label for="radios-0">
+					<input type="radio" class="form_input" name="radios" id="radios-0" value="MisterWear" th:field="*{proveedor}">
+					MisterWear
+				  </label>
+				  </div>
+				<div class="radio">
+				  <label for="radios-1">
+					<input type="radio" class="form_input" name="radios" id="radios-1" value="SieteOctavas" th:field="*{proveedor}">
+					SieteOctavas
+				  </label>
+				  </div>
+				<div class="radio">
+				  <label for="radios-2">
+					<input type="radio" class="form_input" name="radios" id="radios-2" value="Alcaiceria" th:field="*{proveedor}">
+					Alcaiceria
+				  </label>
+				  </div>
+				<div class="radio">
+				  <label for="radios-3">
+					<input type="radio" class="form_input" name="radios" id="radios-3" value="Picholi" th:field="*{proveedor}">
+					Picholi
+				  </label>
+				  </div>
+				<div class="radio">
+				  <label for="radios-4">
+					<input type="radio" class="form_input" name="radios" id="radios-4" value="Fender" th:field="*{proveedor}">
+					Fender
+				  </label>
+				  </div>
+				<div class="radio">
+				  <label for="radios-5">
+					<input type="radio" class="form_input" name="radios" id="radios-5" value="Ibermusic" th:field="*{proveedor}">
+					Ibermusic
+				  </label>
+				  </div>
+				</div>
+			  </div>
+
+			<div class="mb-3 my-3">
 				<label name="cantidad" class="form-label">Cantidad</label>
-				<input id="cantidad" type= "text" name="cantidad" th:field="*{cantidad}" placeholder="Cantidad" />
+				<input id="cantidad" class="form_input" type= "text" name="cantidad" th:field="*{cantidad}" placeholder="Cantidad" />
 			</div>
 
 			<div class="mensajeError text-danger" id="errorCantidad">Introduzca la cantidad del producto, no debe de ser negativo</div>
 			
-			<div class="mb-3">
+			<div class="mb-3 my-3">
 				<label name="precio" class="form-label">Precio</label>
-				<input id="precio" type="text" name="precio" th:field="*{precio}" placeholder="Precio" />
+				<input id="precio" class="form_input" type="text" name="precio" th:field="*{precio}" placeholder="Precio" />
 			</div>
 
-			<div class="mensajeError text-danger" id="errorPrecio">Debes de indicar un precio válido(no se pueden incluir carácteres especiales)</div>
+			<div class="mensajeError text-danger" id="errorPrecio">Debes de indicar un precio válido(no se pueden incluir carácteres negativos)</div>
 			
-			<div class="mb-3">
+			<div class="mb-3 my-3">
 				<label class= "form-label">Imagen</label>
-				<input type="text" name="img" th:field="*{img}" placeholder="Img" />
+				<input type="text" class="form_input" name="img" th:field="*{img}" placeholder="Img" />
 			</div>
 			
-				<div>
+				<div class="mb-3 my-3">
 				<label name="categoria" class="form-label">Categorias</label>
 				<div class="form-check ml-3">
 					<select id="categoria" th:field="*{categorias}">
-						<option value="-1">---</option>
+						<option value="-1" disabled="disabled">---</option>
 						<option th:each="categoria : ${categorias}" th:value="${categoria.id}"
 							th:text="${categoria.nombre}">
 							Categoria
 						</option>
 					</select>
 				</div>
+
+				<div class="mensajeError text-danger" id="errorCategoria">Introduzca una categoria para el producto</div>
+
 			</div>
-			
+		
+	
 			<button type="submit" id="enviar" name="enviar" class="btn btn-primary mb-2">Enviar</button>
 		</form>
 		

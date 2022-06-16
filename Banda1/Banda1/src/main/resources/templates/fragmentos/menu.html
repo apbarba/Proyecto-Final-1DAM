@@ -31,21 +31,7 @@
 						<li class="nav-item"><a class="nav-link" href="/lista">Productos</a></li>
 						<li class="nav-item"><a class="nav-link" sec:authorize="hasAnyRole('ROLE_ADMIN','ROLE_USER')" 
 							th:href="@{carrito/mostrarCarrito}">Carrito</a></li>
-						
-                             <!-->
-                              <li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
-								sec:authorize="hasRole('ROLE_ADMIN')" href="#" id="navbarDarkDropdownMenuLink"
-								role="button" data-bs-toggle="dropdown" aria-expanded="false">Categoria</a>
-                                <ul class="dropdown-menu bg-light text-dark">
-                                    <th:block th:each="categoria : ${lista}">
-                                        <a class="dropdown-item text-dark"
-                                            th:href="@{/productos/categoria/{id}(id=${categoria.id})}"
-                                            th:text="${categoria.nombre}"></a>
-                                    </th:block>
-                                </ul>
-                               </li>
-                                <!--> 
-                                
+        
                                                       
 						<li class="nav-item dropdown"><a class="nav-link dropdown-toggle"
 								sec:authorize="hasRole('ROLE_ADMIN')" href="#" id="navbarDarkDropdownMenuLink"

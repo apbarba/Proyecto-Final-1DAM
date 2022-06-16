@@ -11,6 +11,7 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
 
 import com.salesianostriana.dam.banda.model.Categoria;
+import com.salesianostriana.dam.banda.model.Eventos;
 import com.salesianostriana.dam.banda.model.Productos;
 import com.salesianostriana.dam.banda.repository.CategoriaRepository;
 import com.salesianostriana.dam.banda.servicios.CategoriaServicios;
@@ -57,17 +58,22 @@ public class CategoriaController {
 		
 		Optional<Categoria> categoria = categoriaServicios.findById(id);
 		
-		if (categoria != null) {
+		if (categoria.isPresent()) {
 			
-			model.addAttribute("categoria", categoria);
+			model.addAttribute(categoria.get());
+						
+		} 
 			
-			return "/formularioCategoria";
-			
-		} else {
-			
-			return "redirect:/categoria";
-		}
+		return "/formularioCategoria";
 		
+	}
+	
+	@PostMapping("/categoriaEditar/submit")
+	public String procesarFormularioEdicion(@ModelAttribute("categoria") Categoria c) {
+
+		categoriaServicios.edit(c);
+
+		return "redirect:/categoria";
 	}
 	
 	@GetMapping("/borrarCategoria/{id}")

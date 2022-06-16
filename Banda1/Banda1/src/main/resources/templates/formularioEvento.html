@@ -31,43 +31,48 @@
 	</div>
 
 	<div class="container">
+		<div class="row">
+			<div class="col-md-offset-1 col-md-10">
 
-		<form name="formulario" id="formulario" onsubmit="return validarFormulario();" th:action="${eventos.id != 0} ? @{/editar/submit} : @{/nuevo/submit}"
-			th:object="${eventos}" method="post">
+				<form name="formulario" id="formulario" onsubmit="return validarFormulario();" th:action="${eventos.id != 0} ? @{/editar/submit} : @{/nuevo/submit}"
+					th:object="${eventos}" method="post">
 
-			<input id="color" th:if="${eventos.id != 0}" type="hidden" name="id" th:field="*{id}" />
+					<input id="color" th:if="${eventos.id != 0}" type="hidden" name="id" th:field="*{id}" />
 
-			<div class="mb-3">
-				<label class="form-label">Fecha</label>
-				<input id="fecha" type="date" name="fecha" th:field="*{fecha}" placeholder="fecha" />
+					<div class="form-group">
+						<label class="form-label">Fecha</label>
+						<input id="fecha" type="date" name="fecha" th:field="*{fecha}" placeholder="fecha" />
+					</div>
+
+					<div class="mensajeError text-danger" id="errorFecha">Introduzca una fecha</div>
+
+					<div class="form-group">
+						<label for="lugar" class="form-label">Lugar</label>
+						<input id="lugar" type="text" name="lugar" th:field="*{lugar}" placeholder="Lugar" />
+					</div>
+
+					<div class="mensajeError text-danger" id="errorLugar">Introduzca un lugar</div>
+
+					<div class="form-group">
+						<label for="asunto" class="form-label">Asunto</label>
+						<input id="asunto" type="text" name="asunto" th:field="*{asunto}" placeholder="Asunto" />
+					</div>
+
+					<div class="mensajeError text-danger" id="errorAsunto">Introduzca un asunto</div>
+
+					<div class="form-group">
+						<label for="organizador" class="form-label">Organizador</label>
+						<input id="organizador" type="text" name="organizador" th:field="*{organizador}" placeholder="Organizador" />
+					</div>
+
+					<div class="mensajeError text-danger" id="errorOrganizador">Introduzca el organizador</div>
+
+					<button type="submit" id="enviar" class="btn btn-primary mb-2">Enviar</button>			
+				</form>
+
 			</div>
-
-			<div class="mensajeError text-danger" id="errorFecha">Introduzca una fecha</div>
-
-			<div class="mb-3">
-				<label for="lugar" class="form-label">Lugar</label>
-				<input id="lugar" type="text" name="lugar" th:field="*{lugar}" placeholder="Lugar" />
-			</div>
-
-			<div class="mensajeError text-danger" id="errorLugar">Introduzca un lugar</div>
-
-			<div class="mb-3">
-				<label for="asunto" class="form-label">Asunto</label>
-				<input id="asunto" type="text" name="asunto" th:field="*{asunto}" placeholder="Asunto" />
-			</div>
-
-			<div class="mensajeError text-danger" id="errorAsunto">Introduzca un asunto</div>
-
-			<div class="mb-3">
-				<label for="organizador" class="form-label">Organizador</label>
-				<input id="organizador" type="text" name="organizador" th:field="*{organizador}" placeholder="Organizador" />
-			</div>
-
-			<div class="mensajeError text-danger" id="errorOrganizador">Introduzca el organizador</div>
-
-			<button type="submit" id="enviar" class="btn btn-primary mb-2">Enviar</button>			
-		</form>
-
+		</div>
+	
 	</div>
 </body>
 
