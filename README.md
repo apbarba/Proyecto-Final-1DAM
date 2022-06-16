@@ -11,7 +11,7 @@ user(usuario) - 1234 (contraseña)
 
 admin(usuario) - admin (contraseña)
 
-El icono de la puerta es para ingresar el login
+El icono de la puerta es para ingresar al login
 
 Para ver "La Banda" se deberá de iniciar en el navegador la siguiente ruta : localhost:9000
 
