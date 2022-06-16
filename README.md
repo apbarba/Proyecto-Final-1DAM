@@ -20,6 +20,10 @@ Cada usuario tendrá un rol diferente, ya que si entramos como admin, dispondrem
 SE DEBERÁ DE ESTAR LOGEADO PARA QUE APAREZCA LAS OPCIONES DE COMPRAR Y CARRITO
 
 
+
+
+
+
 LÓGICAS DE NEGOCIO
 __________________
 El administrador no ppodrá implentar un nuevo evento si la fecha escogida ya tiene un evento asociado a esta.
