@@ -48,7 +48,7 @@ public class EventosController {
 	@PostMapping("/nuevo/submit")
 	public String procesarFormulario(@ModelAttribute("eventos") Eventos e) {
 		
-		if(!eventosServicio.comprobarFechas(e.getFecha())) {
+		if(!eventosServicio.comprobarFechas(e.getFecha())) { //lógica de negocio, no se podrá añadir un evento con una fecha ocupada
 			
 			eventosServicio.add(e);
 			

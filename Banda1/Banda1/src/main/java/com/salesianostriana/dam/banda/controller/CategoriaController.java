@@ -83,7 +83,7 @@ public class CategoriaController {
 		
 		if(categoria.isPresent()) {
 			
-			if(productosServicios.encontrarNumProductos(categoria.get()) == 0) {
+			if(productosServicios.encontrarNumProductos(categoria.get()) == 0) { //Lógica de negocio, no se podrá eliminar una categoria que tenga productos asociados
 				
 				categoriaServicios.deleteById(id);
 				
